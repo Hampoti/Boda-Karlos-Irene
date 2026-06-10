@@ -1,200 +1,1103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Karlos & Irene</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karlos & Irene | 12 de septiembre de 2026</title>
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Georgia', serif;
-    color: #4a4a4a;
-    text-align: center;
-    background-color: #fdf8f6;
-}
+  <style>
+    :root{
+      --bg:#fcf8f5;
+      --bg-soft:#f5eeea;
+      --card:#ffffff;
+      --text:#4c433c;
+      --muted:#8a7d73;
+      --accent:#c8a47d;
+      --accent-dark:#b18b64;
+      --line:#eadfd6;
+      --shadow:0 12px 35px rgba(60,40,20,.10);
+      --radius:20px;
+      --nav-height:82px;
+    }
 
-header {
-    background-image: url('[INSERTAR FOTO PORTADA]');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    padding: 120px 20px;
-}
+    *{
+      box-sizing:border-box;
+    }
 
-header h1 {
-    font-size: 48px;
-    margin: 0;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-header p {
-    font-size: 22px;
-}
+    body{
+      margin:0;
+      font-family: Georgia, "Times New Roman", serif;
+      color:var(--text);
+      background:var(--bg);
+      text-align:center;
+      overflow-x:hidden;
+    }
 
-section {
-    padding: 60px 20px;
-    max-width: 900px;
-    margin: auto;
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.separator {
-    width: 60px;
-    height: 2px;
-    background: #c7a17a;
-    margin: 20px auto;
-}
+    /* ====== MENÚ FIJO SUPERIOR ====== */
+    .top-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:var(--nav-height);
+      z-index:9999;
+      background:rgba(252,248,245,.88);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(234,223,214,.9);
+      transition:all .35s ease;
+    }
 
-.card {
-    background: white;
-    padding: 30px;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
+    .top-nav.scrolled{
+      background:rgba(255,255,255,.95);
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
 
-.button {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #c7a17a;
-    color: white;
-    text-decoration: none;
-    border-radius: 25px;
-    margin-top: 10px;
-}
+    .nav-inner{
+      max-width:1200px;
+      height:100%;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:0 24px;
+    }
 
-footer {
-    background: #c7a17a;
-    color: white;
-    padding: 20px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      text-align:left;
+      flex-shrink:0;
+    }
 
-/* Cuenta atrás */
-#countdown {
-    font-size: 28px;
-    margin-top: 20px;
-}
-</style>
+    .brand-mark{
+      width:18px;
+      height:18px;
+      background:var(--accent);
+      transform:rotate(45deg);
+      border-radius:2px;
+      box-shadow:0 4px 10px rgba(200,164,125,.35);
+      position:relative;
+    }
 
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      width:9px;
+      height:9px;
+      background:#2c3440;
+      left:4.5px;
+      top:4.5px;
+      transform:rotate(0deg);
+      border-radius:1px;
+    }
+
+    .brand-text{
+      line-height:1.1;
+    }
+
+    .brand-names{
+      font-size:28px;
+      color:#33445a;
+      letter-spacing:.2px;
+    }
+
+    .brand-date{
+      color:var(--accent);
+      font-size:18px;
+      margin-top:4px;
+    }
+
+    .menu{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      flex:1;
+      flex-wrap:wrap;
+    }
+
+    .menu a{
+      color:var(--muted);
+      font-size:15px;
+      padding:10px 2px;
+      position:relative;
+      transition:color .25s ease;
+      white-space:nowrap;
+    }
+
+    .menu a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:2px;
+      width:0;
+      height:2px;
+      background:var(--accent);
+      transition:width .25s ease;
+      border-radius:999px;
+    }
+
+    .menu a:hover{
+      color:var(--accent-dark);
+    }
+
+    .menu a:hover::after{
+      width:100%;
+    }
+
+    .nav-cta{
+      padding:12px 22px;
+      border:1.8px solid var(--accent);
+      color:var(--accent-dark);
+      border-radius:16px;
+      font-size:14px;
+      letter-spacing:.3px;
+      transition:all .25s ease;
+      flex-shrink:0;
+    }
+
+    .nav-cta:hover{
+      background:var(--accent);
+      color:#fff;
+      transform:translateY(-1px);
+    }
+
+    /* ====== HERO ====== */
+    .hero-space{
+      height:118px; /* espacio para que el menú fijo no tape */
+      background:linear-gradient(to bottom, #fbf7f4, #f7f1ed);
+    }
+
+    header{
+      min-height:92vh;
+      margin-top:26px; /* baja un poco más la foto de portada */
+      background:
+        linear-gradient(rgba(37,26,17,.24), rgba(37,26,17,.28)),
+        url("IMG-20220417-WA0004.jpg") center 64% / cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:80px 20px;
+      position:relative;
+    }
+
+    .hero-card{
+      width:min(760px, 92%);
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(7px);
+      -webkit-backdrop-filter:blur(7px);
+      border-radius:30px;
+      padding:34px 28px;
+      color:#fff;
+      box-shadow:0 20px 60px rgba(0,0,0,.18);
+    }
+
+    .hero-kicker{
+      text-transform:uppercase;
+      letter-spacing:4px;
+      font-size:13px;
+      opacity:.92;
+      margin-bottom:16px;
+    }
+
+    .hero-title{
+      margin:0;
+      font-size:clamp(44px, 7vw, 82px);
+      font-weight:normal;
+      line-height:.95;
+      letter-spacing:.5px;
+    }
+
+    .hero-date{
+      margin:16px 0 0;
+      font-size:clamp(20px, 2.4vw, 27px);
+    }
+
+    .hero-sub{
+      margin:10px 0 0;
+      font-size:18px;
+      opacity:.95;
+    }
+
+    .hero-actions{
+      margin-top:24px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 24px;
+      border-radius:999px;
+      transition:all .25s ease;
+      font-size:15px;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 10px 20px rgba(200,164,125,.28);
+    }
+
+    .btn-primary:hover{
+      background:var(--accent-dark);
+      transform:translateY(-2px);
+    }
+
+    .btn-ghost{
+      color:#fff;
+      border:1.6px solid rgba(255,255,255,.65);
+      background:rgba(255,255,255,.08);
+    }
+
+    .btn-ghost:hover{
+      background:rgba(255,255,255,.18);
+      transform:translateY(-2px);
+    }
+
+    /* ====== ESTRUCTURA ====== */
+    section{
+      padding:88px 20px;
+      scroll-margin-top:110px;
+    }
+
+    .container{
+      max-width:1120px;
+      margin:0 auto;
+    }
+
+    .section-title{
+      font-size:clamp(34px, 5vw, 48px);
+      font-weight:normal;
+      margin:0;
+      color:#53453b;
+    }
+
+    .section-subtitle{
+      max-width:760px;
+      margin:16px auto 0;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:17px;
+    }
+
+    .separator{
+      width:78px;
+      height:2px;
+      background:var(--accent);
+      margin:18px auto 0;
+      border-radius:999px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    /* ====== ANIMACIONES SUAVES ====== */
+    .reveal{
+      opacity:0;
+      transform:translateY(26px);
+      transition:opacity .8s ease, transform .8s ease;
+      will-change:opacity, transform;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* ====== CUENTA ATRÁS ====== */
+    .count-wrapper{
+      margin-top:34px;
+    }
+
+    .count-main{
+      font-size:clamp(26px, 4vw, 38px);
+      color:var(--accent-dark);
+      margin-bottom:20px;
+    }
+
+    .count-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .count-box{
+      padding:24px 12px;
+      border-radius:20px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .count-box strong{
+      display:block;
+      font-size:clamp(28px, 4vw, 40px);
+      color:var(--accent-dark);
+      font-weight:normal;
+    }
+
+    .count-box span{
+      display:block;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      font-size:13px;
+      margin-top:4px;
+    }
+
+    /* ====== HISTORIA ====== */
+    .story-grid{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:center;
+      text-align:left;
+    }
+
+    .story-text{
+      padding:34px;
+    }
+
+    .story-text p{
+      margin:0 0 16px;
+      line-height:1.95;
+      font-size:17px;
+      color:#60564f;
+    }
+
+    .story-photo{
+      overflow:hidden;
+      min-height:430px;
+    }
+
+    .story-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* ====== EVENTO ====== */
+    .event-grid{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:18px;
+    }
+
+    .event-item{
+      padding:28px 20px;
+      border-radius:20px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .event-item h3{
+      margin:0 0 10px;
+      color:var(--accent-dark);
+      font-size:24px;
+      font-weight:normal;
+    }
+
+    .event-item p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .event-note{
+      margin-top:22px;
+      padding:24px;
+    }
+
+    .event-note p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.85;
+    }
+
+    /* ====== INFO ÚTIL / RECENA TABS INTERNAS ====== */
+    .tab-switchers{
+      margin-top:34px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .tab-btn{
+      padding:12px 22px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:#6d625a;
+      cursor:pointer;
+      transition:all .25s ease;
+      font-size:15px;
+      box-shadow:0 4px 12px rgba(0,0,0,.03);
+    }
+
+    .tab-btn:hover{
+      border-color:var(--accent);
+      color:var(--accent-dark);
+    }
+
+    .tab-btn.active{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+    }
+
+    .tab-panel{
+      display:none;
+      margin-top:24px;
+      text-align:left;
+      padding:28px;
+    }
+
+    .tab-panel.active{
+      display:block;
+      animation:fadeSoft .45s ease;
+    }
+
+    .tab-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .info-box{
+      padding:24px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .info-box h3{
+      margin:0 0 10px;
+      font-size:23px;
+      color:var(--accent-dark);
+      font-weight:normal;
+    }
+
+    .info-box p, .info-box li{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+    }
+
+    .info-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    /* ====== LISTA DE BODAS ====== */
+    .gift-note{
+      max-width:800px;
+      margin:26px auto 0;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:18px;
+    }
+
+    .iban-box{
+      display:inline-block;
+      margin-top:18px;
+      padding:18px 24px;
+      background:#fff;
+      border:1px dashed var(--accent);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      font-size:22px;
+      color:#5e5148;
+      letter-spacing:.8px;
+      word-break:break-word;
+    }
+
+    /* ====== GALERÍA ====== */
+    .gallery-box{
+      margin-top:30px;
+      padding:60px 20px;
+      border-radius:26px;
+      background:linear-gradient(135deg, #fff, #f7efe9);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      color:var(--muted);
+      font-size:18px;
+    }
+
+    /* ====== RSVP ====== */
+    .form-card{
+      margin-top:34px;
+      padding:28px;
+      text-align:left;
+    }
+
+    form{
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    label{
+      font-size:15px;
+      color:#6a5f56;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid #e7dbd2;
+      background:#fff;
+      font:inherit;
+      color:var(--text);
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease, transform .15s ease;
+    }
+
+    input:focus, textarea:focus{
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(200,164,125,.12);
+      transform:translateY(-1px);
+    }
+
+    textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .submit-wrap{
+      text-align:center;
+      margin-top:20px;
+    }
+
+    .form-note{
+      text-align:center;
+      margin-top:14px;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.7;
+    }
+
+    /* ====== FOOTER ====== */
+    footer{
+      margin-top:40px;
+      background:#cdb39c;
+      color:#fff;
+      padding:34px 20px;
+    }
+
+    footer p{
+      margin:6px 0;
+      line-height:1.7;
+    }
+
+    @keyframes fadeSoft{
+      from{
+        opacity:0;
+        transform:translateY(10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 1080px){
+      .menu{
+        display:none;
+      }
+
+      .nav-inner{
+        justify-content:space-between;
+      }
+
+      .brand-names{
+        font-size:24px;
+      }
+
+      .brand-date{
+        font-size:17px;
+      }
+    }
+
+    @media (max-width: 900px){
+      .count-grid,
+      .event-grid,
+      .story-grid,
+      .tab-grid,
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .story-photo{
+        min-height:auto;
+      }
+
+      .hero-space{
+        height:105px;
+      }
+
+      header{
+        min-height:78vh;
+        margin-top:18px;
+        background-position:center 58%;
+      }
+
+      .hero-card{
+        padding:28px 20px;
+      }
+    }
+
+    @media (max-width: 640px){
+      .top-nav{
+        height:auto;
+        min-height:82px;
+        padding:10px 0;
+      }
+
+      .nav-inner{
+        flex-direction:column;
+        gap:10px;
+        padding:0 16px;
+      }
+
+      .brand{
+        justify-content:center;
+      }
+
+      .nav-cta{
+        width:100%;
+        max-width:320px;
+      }
+
+      .hero-space{
+        height:136px;
+      }
+
+      .brand-names{
+        font-size:22px;
+      }
+
+      .brand-date{
+        font-size:16px;
+      }
+
+      .count-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      section{
+        padding:72px 16px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- INICIO -->
-<header>
-    <h1>Karlos & Irene</h1>
-    <p>¡Nos casamos!</p>
-    <p>[INSERTAR FECHA]</p>
-</header>
+  <!-- MENÚ FIJO -->
+  <nav class="top-nav" id="topNav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <div class="brand-names">Karlos & Irene</div>
+          <div class="brand-date">12 de septiembre de 2026</div>
+        </div>
+      </div>
 
-<!-- CUENTA ATRÁS -->
-<section>
-    <h2>Cuenta atrás</h2>
-    <div class="separator"></div>
-    <div id="countdown"></div>
-</section>
+      <div class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Nuestra Historia</a>
+        <a href="#info">Información útil</a>
+        <a href="#evento">El Gran Día</a>
+        <a href="#fiesta">Recena y Fiesta</a>
+        <a href="#lista">Lista de bodas</a>
+        <a href="#rsvp">Confirmar asistencia</a>
+      </div>
 
-<!-- NUESTRA HISTORIA -->
-<section>
-    <h2>Nuestra Historia</h2>
-    <div class="separator"></div>
-    <p>[INSERTAR TEXTO DE LA HISTORIA]</p>
-    <img src="[INSERTAR FOTO HISTORIA]" width="100%" style="border-radius:10px;margin-top:20px;">
-</section>
-
-<!-- DETALLES EVENTO -->
-<section>
-    <h2>El Gran Día</h2>
-    <div class="separator"></div>
-    <div class="card">
-        <p><strong>Fecha:</strong> [INSERTAR FECHA]</p>
-        <p><strong>Hora:</strong> [INSERTAR HORA]</p>
-        <p><strong>Lugar:</strong> [INSERTAR LUGAR]</p>
-        <a href="[INSERTAR MAPA]" class="button">Ver ubicación</a>
+      <a href="#rsvp" class="nav-cta">CONFIRMAR ASISTENCIA</a>
     </div>
-</section>
+  </nav>
 
-<!-- INFORMACIÓN ÚTIL -->
-<section>
-    <h2>Información útil</h2>
-    <div class="separator"></div>
-    <div class="card">
-        <p><strong>Alojamiento:</strong> [INSERTAR INFO]</p>
-        <p><strong>Dress code:</strong> [INSERTAR INFO]</p>
-        <p><strong>Transporte:</strong> [INSERTAR INFO]</p>
+  <!-- ESPACIO PARA EL MENÚ FIJO -->
+  <div class="hero-space"></div>
+
+  <!-- HERO / PORTADA -->
+  <header id="inicio">
+    <div class="hero-card reveal">
+      <div class="hero-kicker">Nos casamos</div>
+      <h1 class="hero-title">Karlos & Irene</h1>
+      <p class="hero-date">12 de septiembre de 2026</p>
+      <p class="hero-sub">Gracias por acompañarnos en uno de los días más especiales de nuestra vida.</p>
+
+      <div class="hero-actions">
+        <a href="#rsvp" class="btn btn-primary">Confirmar asistencia</a>
+        <a href="#evento" class="btn btn-ghost">Ver detalles del evento</a>
+      </div>
     </div>
-</section>
+  </header>
 
-<!-- LISTA DE BODAS (estilo inspirado) -->
-<section>
-    <h2>Lista de bodas</h2>
-    <div class="separator"></div>
-    <div class="card">
-        <p>El mejor regalo es compartir este día con vosotros 💖</p>
-        <p>Si queréis ayudarnos en nuestra nueva etapa, podéis hacerlo aquí:</p>
-        <p><strong>[INSERTAR NÚMERO DE CUENTA]</strong></p>
-        <p>¡Mil gracias de corazón!</p>
+  <!-- CUENTA ATRÁS -->
+  <section id="countdown-section">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Cuenta atrás</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Cada día que pasa queda un poquito menos para celebrar juntos este momento tan especial.
+        </p>
+
+        <div class="count-wrapper">
+          <div id="countdownText" class="count-main">Cargando cuenta atrás…</div>
+
+          <div class="count-grid">
+            <div class="count-box">
+              <strong id="days">0</strong>
+              <span>Días</span>
+            </div>
+            <div class="count-box">
+              <strong id="hours">0</strong>
+              <span>Horas</span>
+            </div>
+            <div class="count-box">
+              <strong id="minutes">0</strong>
+              <span>Minutos</span>
+            </div>
+            <div class="count-box">
+              <strong id="seconds">0</strong>
+              <span>Segundos</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- RECENA Y FIESTA -->
-<section>
-    <h2>Recena & Fiesta</h2>
-    <div class="separator"></div>
-    <div class="card">
-        <p>[INSERTAR DETALLES DE LA FIESTA, HORARIO, DJ, SORPRESAS]</p>
+  <!-- NUESTRA HISTORIA -->
+  <section id="historia">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Aquí podéis contar cómo empezó todo, los momentos que más os han marcado y cómo habéis llegado hasta este “sí, quiero”.
+        </p>
+
+        <div class="story-grid">
+          <div class="story-text card">
+            <p>[INSERTAR TEXTO DE LA HISTORIA]</p>
+            <p>[INSERTAR TEXTO ADICIONAL: cómo os conocisteis, anécdotas, viajes, pedida, etc.]</p>
+            <p>[INSERTAR UN ÚLTIMO PÁRRAFO EMOTIVO]</p>
+          </div>
+
+          <div class="story-photo card">
+            <img src="IMG-20220417-WA0004.jpg" alt="Foto de Karlos e Irene">
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- GALERÍA -->
-<section>
-    <h2>Galería</h2>
-    <div class="separator"></div>
-    <p>Próximamente añadiremos nuestras fotos 📸</p>
-</section>
+  <!-- INFORMACIÓN ÚTIL Y RECENA EN TABS -->
+  <section id="info">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Información para invitados</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Toda la información práctica para que podáis disfrutar del día con tranquilidad.
+        </p>
 
-<!-- RSVP -->
-<section>
-    <h2>Confirmar asistencia</h2>
-    <div class="separator"></div>
-    <div class="card">
-        <form>
-            <input type="text" placeholder="Nombre" required><br><br>
-            <input type="number" placeholder="Número de asistentes" required><br><br>
-            <textarea placeholder="Comentarios"></textarea><br><br>
-            <button type="submit" class="button">Enviar</button>
-        </form>
-        <p><small>Este formulario es ilustrativo y no envía datos.</small></p>
+        <div class="tab-switchers">
+          <button class="tab-btn active" onclick="openTab('tabInfo', this)">Información útil</button>
+          <button class="tab-btn" onclick="openTab('tabFiesta', this)">Recena y Fiesta</button>
+        </div>
+
+        <div id="tabInfo" class="tab-panel active card">
+          <div class="tab-grid">
+            <div class="info-box">
+              <h3>Alojamiento</h3>
+              <p>[INSERTAR HOTELES, APARTAMENTOS O RECOMENDACIONES]</p>
+            </div>
+
+            <div class="info-box">
+              <h3>Dress code</h3>
+              <p>[INSERTAR CÓDIGO DE VESTIR]</p>
+            </div>
+
+            <div class="info-box">
+              <h3>Transporte</h3>
+              <p>[INSERTAR PARKING, AUTOBÚS, TAXIS, TRASLADOS, ETC.]</p>
+            </div>
+
+            <div class="info-box">
+              <h3>Más detalles</h3>
+              <ul>
+                <li>[INSERTAR DETALLE ÚTIL]</li>
+                <li>[INSERTAR DETALLE ÚTIL]</li>
+                <li>[INSERTAR DETALLE ÚTIL]</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabFiesta" class="tab-panel card">
+          <div class="tab-grid">
+            <div class="info-box">
+              <h3>Recena</h3>
+              <p>[INSERTAR INFORMACIÓN DE LA RECENA]</p>
+            </div>
+
+            <div class="info-box" id="fiesta">
+              <h3>Fiesta</h3>
+              <p>[INSERTAR DETALLES DE LA FIESTA: música, DJ, barra, sorpresas…]</p>
+            </div>
+
+            <div class="info-box">
+              <h3>Horario</h3>
+              <ul>
+                <li>[HORA - MOMENTO 1]</li>
+                <li>[HORA - MOMENTO 2]</li>
+                <li>[HORA - MOMENTO 3]</li>
+              </ul>
+            </div>
+
+            <div class="info-box">
+              <h3>Indicaciones</h3>
+              <p>[INSERTAR INFORMACIÓN EXTRA SOBRE LA FIESTA]</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
+  <!-- EL GRAN DÍA -->
+  <section id="evento">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">El Gran Día</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Aquí podéis dejar todos los datos importantes del evento para que nadie se pierda nada.
+        </p>
+
+        <div class="event-grid">
+          <div class="event-item">
+            <h3>Fecha</h3>
+            <p>12 de septiembre de 2026</p>
+          </div>
+
+          <div class="event-item">
+            <h3>Hora</h3>
+            <p>[INSERTAR HORA]</p>
+          </div>
+
+          <div class="event-item">
+            <h3>Lugar</h3>
+            <p>[INSERTAR LUGAR]</p>
+          </div>
+        </div>
+
+        <div class="event-note card">
+          <p>[INSERTAR DIRECCIÓN COMPLETA / INDICACIONES / INFORMACIÓN DE ACCESO]</p>
+          <a href="[INSERTAR ENLACE DE GOOGLE MAPS]" class="btn btn-primary">Ver ubicación</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTA DE BODAS -->
+  <section id="lista">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Lista de bodas</h2>
+        <div class="separator"></div>
+
+        <p class="gift-note">
+          El mejor regalo es compartir este día con vosotros. Si queréis ayudarnos en nuestra nueva etapa, podéis hacerlo aquí con todo nuestro cariño:
+        </p>
+
+        <div class="iban-box">
+          [INSERTAR NÚMERO DE CUENTA / IBAN]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Galería</h2>
+        <div class="separator"></div>
+        <div class="gallery-box">
+          Próximamente añadiremos aquí nuestras fotos 📸
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Confirmar asistencia</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Nos hará muchísima ilusión contar con vosotros. Podéis usar este formulario como ejemplo visual.
+        </p>
+
+        <div class="form-card card">
+          <form>
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre</label>
+                <input id="nombre" type="text" placeholder="Tu nombre">
+              </div>
+
+              <div class="field">
+                <label for="asistentes">Número de asistentes</label>
+                <input id="asistentes" type="number" placeholder="Ej. 2">
+              </div>
+            </div>
+
+            <div class="field" style="margin-top:18px;">
+              <label for="comentarios">Comentarios</label>
+              <textarea id="comentarios" placeholder="Alergias, necesidades especiales, mensaje para los novios..."></textarea>
+            </div>
+
+            <div class="submit-wrap">
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </div>
+          </form>
+
+          <p class="form-note">
+            Este formulario es ilustrativo y no almacena ni envía datos online.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
     <p>Gracias por formar parte de nuestro día 💕</p>
     <p>[INSERTAR CONTACTO]</p>
-</footer>
+  </footer>
 
-<script>
-// Fecha de la boda
-var weddingDate = new Date("[INSERTAR FECHA FORMATO YYYY-MM-DD]").getTime();
+  <script>
+    /* ====== MENÚ FIJO CON EFECTO AL HACER SCROLL ====== */
+    const topNav = document.getElementById('topNav');
 
-var x = setInterval(function() {
-    var now = new Date().getTime();
-    var distance = weddingDate - now;
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 20) {
+        topNav.classList.add('scrolled');
+      } else {
+        topNav.classList.remove('scrolled');
+      }
+    });
 
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").innerHTML = days + " días";
+    /* ====== ANIMACIONES SUAVES DE ENTRADA ====== */
+    const revealElements = document.querySelectorAll('.reveal');
 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("countdown").innerHTML = "¡Ya es el gran día!";
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    /* ====== TABS ====== */
+    function openTab(tabId, button) {
+      const panels = document.querySelectorAll('.tab-panel');
+      const buttons = document.querySelectorAll('.tab-btn');
+
+      panels.forEach(panel => panel.classList.remove('active'));
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      document.getElementById(tabId).classList.add('active');
+      button.classList.add('active');
     }
-}, 1000);
-</script>
 
+    /* ====== CUENTA ATRÁS ====== */
+    const weddingDate = new Date("2026-09-12T13:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdownText").innerHTML = "¡Ya es el gran día!";
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("countdownText").innerHTML = days + " días para celebrar juntos";
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
