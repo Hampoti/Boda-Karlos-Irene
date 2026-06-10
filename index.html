@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karlos & Irene</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: #4a4a4a;
+    text-align: center;
+    background-color: #fdf8f6;
+}
+
+header {
+    background-image: url('[INSERTAR FOTO PORTADA]');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 20px;
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+header p {
+    font-size: 22px;
+}
+
+section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.separator {
+    width: 60px;
+    height: 2px;
+    background: #c7a17a;
+    margin: 20px auto;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #c7a17a;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+footer {
+    background: #c7a17a;
+    color: white;
+    padding: 20px;
+}
+
+/* Cuenta atrás */
+#countdown {
+    font-size: 28px;
+    margin-top: 20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- INICIO -->
+<header>
+    <h1>Karlos & Irene</h1>
+    <p>¡Nos casamos!</p>
+    <p>[INSERTAR FECHA]</p>
+</header>
+
+<!-- CUENTA ATRÁS -->
+<section>
+    <h2>Cuenta atrás</h2>
+    <div class="separator"></div>
+    <div id="countdown"></div>
+</section>
+
+<!-- NUESTRA HISTORIA -->
+<section>
+    <h2>Nuestra Historia</h2>
+    <div class="separator"></div>
+    <p>[INSERTAR TEXTO DE LA HISTORIA]</p>
+    <img src="[INSERTAR FOTO HISTORIA]" width="100%" style="border-radius:10px;margin-top:20px;">
+</section>
+
+<!-- DETALLES EVENTO -->
+<section>
+    <h2>El Gran Día</h2>
+    <div class="separator"></div>
+    <div class="card">
+        <p><strong>Fecha:</strong> [INSERTAR FECHA]</p>
+        <p><strong>Hora:</strong> [INSERTAR HORA]</p>
+        <p><strong>Lugar:</strong> [INSERTAR LUGAR]</p>
+        <a href="[INSERTAR MAPA]" class="button">Ver ubicación</a>
+    </div>
+</section>
+
+<!-- INFORMACIÓN ÚTIL -->
+<section>
+    <h2>Información útil</h2>
+    <div class="separator"></div>
+    <div class="card">
+        <p><strong>Alojamiento:</strong> [INSERTAR INFO]</p>
+        <p><strong>Dress code:</strong> [INSERTAR INFO]</p>
+        <p><strong>Transporte:</strong> [INSERTAR INFO]</p>
+    </div>
+</section>
+
+<!-- LISTA DE BODAS (estilo inspirado) -->
+<section>
+    <h2>Lista de bodas</h2>
+    <div class="separator"></div>
+    <div class="card">
+        <p>El mejor regalo es compartir este día con vosotros 💖</p>
+        <p>Si queréis ayudarnos en nuestra nueva etapa, podéis hacerlo aquí:</p>
+        <p><strong>[INSERTAR NÚMERO DE CUENTA]</strong></p>
+        <p>¡Mil gracias de corazón!</p>
+    </div>
+</section>
+
+<!-- RECENA Y FIESTA -->
+<section>
+    <h2>Recena & Fiesta</h2>
+    <div class="separator"></div>
+    <div class="card">
+        <p>[INSERTAR DETALLES DE LA FIESTA, HORARIO, DJ, SORPRESAS]</p>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section>
+    <h2>Galería</h2>
+    <div class="separator"></div>
+    <p>Próximamente añadiremos nuestras fotos 📸</p>
+</section>
+
+<!-- RSVP -->
+<section>
+    <h2>Confirmar asistencia</h2>
+    <div class="separator"></div>
+    <div class="card">
+        <form>
+            <input type="text" placeholder="Nombre" required><br><br>
+            <input type="number" placeholder="Número de asistentes" required><br><br>
+            <textarea placeholder="Comentarios"></textarea><br><br>
+            <button type="submit" class="button">Enviar</button>
+        </form>
+        <p><small>Este formulario es ilustrativo y no envía datos.</small></p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>Gracias por formar parte de nuestro día 💕</p>
+    <p>[INSERTAR CONTACTO]</p>
+</footer>
+
+<script>
+// Fecha de la boda
+var weddingDate = new Date("[INSERTAR FECHA FORMATO YYYY-MM-DD]").getTime();
+
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = weddingDate - now;
+
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").innerHTML = days + " días";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "¡Ya es el gran día!";
+    }
+}, 1000);
+</script>
+
+</body>
+</html>
