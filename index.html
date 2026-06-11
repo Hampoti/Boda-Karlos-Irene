@@ -1,309 +1,1772 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Irene & Karlos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Boda de Irene y Karlos - 12 de septiembre de 2026" />
+  <title>Irene & Karlos | 12 de septiembre de 2026</title>
 
-<style>
-:root{
-  --accent:#c8a47d;
-}
+  <!-- TIPOGRAFÍAS PREMIUM -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-/* GENERAL */
-body{
-  margin:0;
-  font-family:Georgia, serif;
-  background:#fcf8f5;
-  color:#4a3f36;
-}
+  <style>
+    :root{
+      --bg:#fcf8f5;
+      --bg-soft:#f5eeea;
+      --card:#ffffff;
+      --text:#4c433c;
+      --muted:#8b7d73;
+      --accent:#c8a47d;
+      --accent-dark:#b18b64;
+      --line:#eadfd6;
+      --shadow:0 16px 40px rgba(60,40,20,.10);
+      --radius:22px;
+      --nav-height:90px;
+      --max-width:1160px;
+    }
 
-/* ===== MENÚ ===== */
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 40px;
-  box-shadow:0 6px 20px rgba(0,0,0,0.05);
-  z-index:1000;
-}
+    *{ box-sizing:border-box; }
 
-.nav-left{ font-size:22px; }
+    html{ scroll-behavior:smooth; }
 
-.nav-center{
-  display:flex;
-  gap:25px;
-}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:'Montserrat', sans-serif;
+      overflow-x:hidden;
+    }
 
-.nav-center a{
-  font-size:18px;
-  text-decoration:none;
-  color:#666;
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-.nav-center a:hover{
-  color:var(--accent);
-}
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
 
-.nav-right{
-  min-width:200px;
-  text-align:right;
-}
+    button,
+    input,
+    textarea{
+      font:inherit;
+    }
 
-.nav-btn{
-  border:2px solid var(--accent);
-  padding:10px 18px;
-  border-radius:12px;
-  color:var(--accent);
-  text-decoration:none;
-}
+    .container{
+      width:min(var(--max-width), calc(100% - 32px));
+      margin-inline:auto;
+    }
 
-/* ESPACIO MENÚ */
-.top-space{ height:90px; }
+    .title-font{
+      font-family:'Cormorant Garamond', serif;
+    }
 
-/* ===== PORTADA ===== */
-header{
-  height:80vh;
+    /* =========================
+       MENÚ FIJO
+    ========================= */
+    .top-nav{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      height:var(--nav-height);
+      z-index:1000;
+      background:rgba(252,248,245,.94);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(234,223,214,.9);
+      transition:all .3s ease;
+    }
 
-  /* 📸 FOTO PORTADA */
-  background:url("IMG-PORTADA.jpg") center 65%/cover no-repeat;
+    .top-nav.scrolled{
+      background:rgba(255,255,255,.97);
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+    }
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:white;
-  margin-top:20px;
-}
+    .nav-inner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
 
-.hero{
-  background:rgba(0,0,0,0.4);
-  padding:40px;
-  border-radius:20px;
-  max-width:600px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width:220px;
+      flex-shrink:0;
+    }
 
-/* ===== SECCIONES ===== */
-section{
-  padding:80px 20px;
-  text-align:center;
-}
+    .brand-mark{
+      width:18px;
+      height:18px;
+      background:var(--accent);
+      transform:rotate(45deg);
+      border-radius:2px;
+      position:relative;
+      box-shadow:0 4px 10px rgba(200,164,125,.35);
+    }
 
-h2{ font-size:40px; }
+    .brand-mark::after{
+      content:"";
+      position:absolute;
+      inset:5px;
+      background:#314156;
+      border-radius:1px;
+      transform:rotate(0deg);
+    }
 
-/* TARJETAS */
-.card{
-  background:white;
-  padding:30px;
-  border-radius:18px;
-  max-width:900px;
-  margin:20px auto;
-}
+    .brand-names{
+      font-family:'Cormorant Garamond', serif;
+      font-size:32px;
+      line-height:1;
+      color:#314156;
+    }
 
-/* MAPA */
-.map-box{
-  border:1px solid #eee;
-  padding:20px;
-  border-radius:15px;
-  margin-top:20px;
-}
+    .brand-date{
+      color:var(--accent);
+      font-size:16px;
+      margin-top:4px;
+      font-weight:500;
+      letter-spacing:.3px;
+    }
 
-/* BOTÓN */
-.button{
-  background:var(--accent);
-  color:white;
-  padding:12px 20px;
-  border-radius:20px;
-}
+    .menu{
+      display:flex;
+      gap:24px;
+      justify-content:center;
+      flex:1;
+      padding:0 10px;
+    }
 
-/* ===== GALERÍA ===== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-  max-width:1000px;
-  margin:30px auto;
-}
+    .menu a{
+      font-size:16px;
+      color:var(--muted);
+      font-weight:500;
+      white-space:nowrap;
+      position:relative;
+      padding:8px 0;
+      transition:color .25s ease;
+    }
 
-.gallery img{
-  width:100%;
-  border-radius:15px;
-  transition:0.4s;
-}
+    .menu a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:0;
+      width:0;
+      height:2px;
+      background:var(--accent);
+      border-radius:999px;
+      transition:width .25s ease;
+    }
 
-.gallery img:hover{
-  transform:scale(1.05);
-}
+    .menu a:hover,
+    .menu a.active{
+      color:var(--accent-dark);
+    }
 
-/* ===== ANIMACIONES ===== */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s ease;
-}
+    .menu a:hover::after,
+    .menu a.active::after{
+      width:100%;
+    }
 
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
-}
+    .nav-actions{
+      min-width:250px;
+      display:flex;
+      justify-content:flex-end;
+      flex-shrink:0;
+    }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  nav{
-    flex-direction:column;
-    gap:10px;
-  }
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 22px;
+      border:1.8px solid var(--accent);
+      border-radius:16px;
+      background:#fffaf7;
+      color:var(--accent-dark);
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:.2px;
+      transition:all .25s ease;
+    }
 
-  .nav-center{
-    flex-wrap:wrap;
-    justify-content:center;
-  }
+    .nav-cta:hover{
+      background:var(--accent);
+      color:#fff;
+      transform:translateY(-1px);
+    }
 
-  .nav-right{
-    text-align:center;
-  }
+    .menu-toggle{
+      display:none;
+      font-size:30px;
+      border:none;
+      background:transparent;
+      color:#564a42;
+      cursor:pointer;
+      padding:6px;
+      line-height:1;
+    }
 
-  header{
-    height:70vh;
-  }
-}
-</style>
+    .mobile-panel{
+      display:none;
+      position:absolute;
+      top:100%;
+      left:0;
+      width:100%;
+      background:rgba(255,255,255,.98);
+      border-bottom:1px solid var(--line);
+      box-shadow:0 12px 24px rgba(0,0,0,.06);
+      padding:16px;
+    }
+
+    .mobile-panel.open{ display:block; }
+
+    .mobile-links{
+      display:grid;
+      gap:10px;
+    }
+
+    .mobile-links a{
+      text-align:center;
+      padding:12px;
+      border-radius:12px;
+      background:#faf5f1;
+      color:#6f635a;
+      font-size:16px;
+      font-weight:500;
+    }
+
+    .mobile-links a:hover{
+      background:#f3e8df;
+      color:var(--accent-dark);
+    }
+
+    .mobile-rsvp{
+      margin-top:12px;
+      display:flex;
+      justify-content:center;
+      padding:13px 18px;
+      border-radius:14px;
+      border:1.6px solid var(--accent);
+      background:#fffaf7;
+      color:var(--accent-dark);
+      font-size:15px;
+      font-weight:600;
+    }
+
+    .hero-space{
+      height:118px;
+      background:linear-gradient(to bottom, #fbf7f4, #f7f1ed);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+    .hero{
+      min-height:92vh;
+      margin-top:24px;
+      display:grid;
+      place-items:center;
+      padding:90px 20px;
+      background:
+        linear-gradient(rgba(37,26,17,.26), rgba(37,26,17,.30)),
+        url("IMAGEN-PORTADA.jpg") center 68% / cover no-repeat;
+      position:relative;
+    }
+
+    .hero-card{
+      width:min(860px, 92%);
+      background:rgba(255,255,255,.13);
+      border:1px solid rgba(255,255,255,.28);
+      backdrop-filter:blur(8px);
+      -webkit-backdrop-filter:blur(8px);
+      border-radius:32px;
+      padding:42px 30px;
+      color:#fff;
+      text-align:center;
+      box-shadow:0 24px 68px rgba(0,0,0,.18);
+    }
+
+    .hero-kicker{
+      text-transform:uppercase;
+      letter-spacing:4px;
+      font-size:13px;
+      opacity:.95;
+      margin-bottom:16px;
+      font-weight:500;
+    }
+
+    .hero-title{
+      font-family:'Cormorant Garamond', serif;
+      margin:0;
+      font-size:clamp(54px, 8vw, 96px);
+      line-height:.9;
+      font-weight:600;
+    }
+
+    .hero-copy{
+      max-width:720px;
+      margin:18px auto 0;
+      font-size:clamp(18px, 2.2vw, 24px);
+      line-height:1.8;
+    }
+
+    .hero-actions{
+      margin-top:28px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      border:none;
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 24px;
+      border-radius:999px;
+      font-size:15px;
+      transition:all .25s ease;
+      font-family:'Montserrat', sans-serif;
+      font-weight:600;
+      letter-spacing:.2px;
+    }
+
+    .btn-primary{
+      background:var(--accent);
+      color:#fff;
+      box-shadow:0 10px 22px rgba(200,164,125,.28);
+    }
+
+    .btn-primary:hover{
+      background:var(--accent-dark);
+      transform:translateY(-2px);
+    }
+
+    .btn-ghost{
+      color:#fff;
+      border:1.6px solid rgba(255,255,255,.68);
+      background:rgba(255,255,255,.07);
+    }
+
+    .btn-ghost:hover{
+      background:rgba(255,255,255,.18);
+      transform:translateY(-2px);
+    }
+
+    /* =========================
+       SECCIONES
+    ========================= */
+    section{
+      padding:88px 0;
+      scroll-margin-top:110px;
+    }
+
+    .section-title{
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(40px, 5vw, 56px);
+      text-align:center;
+      margin:0;
+      color:#52443a;
+      font-weight:600;
+    }
+
+    .section-subtitle{
+      max-width:840px;
+      margin:16px auto 0;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:16px;
+    }
+
+    .separator{
+      width:80px;
+      height:2px;
+      background:var(--accent);
+      border-radius:999px;
+      margin:18px auto 0;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    /* =========================
+       ANIMACIÓN SCROLL
+    ========================= */
+    .reveal{
+      opacity:0;
+      transform:translateY(30px);
+      transition:opacity .8s ease, transform .8s ease;
+      will-change:opacity, transform;
+    }
+
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* =========================
+       CUENTA ATRÁS
+    ========================= */
+    .count-wrapper{
+      margin-top:34px;
+    }
+
+    .count-main{
+      text-align:center;
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(30px, 4vw, 42px);
+      color:var(--accent-dark);
+      margin-bottom:20px;
+      font-weight:600;
+    }
+
+    .count-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:18px;
+    }
+
+    .count-box{
+      text-align:center;
+      padding:24px 12px;
+      border-radius:20px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .count-box strong{
+      display:block;
+      font-family:'Cormorant Garamond', serif;
+      font-size:clamp(32px, 4vw, 46px);
+      color:var(--accent-dark);
+      font-weight:600;
+    }
+
+    .count-box span{
+      display:block;
+      color:var(--muted);
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      font-size:12px;
+      margin-top:4px;
+      font-weight:600;
+    }
+
+    /* =========================
+       HISTORIA
+    ========================= */
+    .story-grid{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .story-text{
+      padding:36px;
+      text-align:left;
+    }
+
+    .story-text p{
+      margin:0 0 16px;
+      line-height:1.95;
+      font-size:16px;
+      color:#60564f;
+    }
+
+    .story-photo{
+      overflow:hidden;
+      min-height:480px;
+    }
+
+    .story-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    /* =========================
+       TIMELINE DEL DÍA
+    ========================= */
+    .timeline{
+      margin-top:36px;
+      position:relative;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+      padding-left:20px;
+    }
+
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:26px;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:linear-gradient(to bottom, var(--accent), rgba(200,164,125,.2));
+    }
+
+    .timeline-item{
+      position:relative;
+      margin:0 0 28px 0;
+      padding-left:64px;
+    }
+
+    .timeline-dot{
+      position:absolute;
+      left:14px;
+      top:4px;
+      width:26px;
+      height:26px;
+      border-radius:50%;
+      background:#fff;
+      border:2px solid var(--accent);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:12px;
+      box-shadow:0 4px 10px rgba(200,164,125,.25);
+    }
+
+    .timeline-card{
+      padding:22px 22px 20px;
+      text-align:left;
+    }
+
+    .timeline-time{
+      display:inline-block;
+      color:var(--accent-dark);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.8px;
+      text-transform:uppercase;
+      margin-bottom:6px;
+    }
+
+    .timeline-title{
+      font-family:'Cormorant Garamond', serif;
+      font-size:30px;
+      margin:0 0 8px;
+      color:#5a4a3e;
+      font-weight:600;
+    }
+
+    .timeline-text{
+      margin:0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:15px;
+    }
+
+    /* =========================
+       MAPAS
+    ========================= */
+    .maps-grid{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .map-card{
+      position:relative;
+      overflow:hidden;
+      text-align:left;
+      padding:26px 24px;
+      border-radius:22px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .map-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(200,164,125,.08), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+
+    .map-card > *{ position:relative; z-index:1; }
+
+    .map-card h3{
+      margin:0 0 8px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:32px;
+      color:var(--accent-dark);
+      font-weight:600;
+    }
+
+    .map-card p{
+      margin:0 0 14px;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:15px;
+    }
+
+    .map-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .map-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 18px;
+      border-radius:14px;
+      font-size:14px;
+      font-weight:600;
+      transition:all .25s ease;
+    }
+
+    .map-btn.primary{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    .map-btn.primary:hover{
+      background:var(--accent-dark);
+      transform:translateY(-1px);
+    }
+
+    .map-btn.secondary{
+      border:1.6px solid var(--accent);
+      color:var(--accent-dark);
+      background:#fffaf7;
+    }
+
+    .map-btn.secondary:hover{
+      background:#f7ecdf;
+      transform:translateY(-1px);
+    }
+
+    /* =========================
+       TABS
+    ========================= */
+    .tab-switchers{
+      margin-top:34px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .tab-btn{
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      padding:13px 24px;
+      border-radius:999px;
+      color:#6d625a;
+      font-size:15px;
+      font-weight:600;
+      transition:all .25s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,.03);
+    }
+
+    .tab-btn:hover{
+      border-color:var(--accent);
+      color:var(--accent-dark);
+    }
+
+    .tab-btn.active{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+    }
+
+    .tab-panel{
+      display:none;
+      margin-top:24px;
+      padding:28px;
+      text-align:left;
+    }
+
+    .tab-panel.active{
+      display:block;
+      animation:fadeSoft .4s ease;
+    }
+
+    .tab-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .info-box{
+      padding:24px;
+      border-radius:18px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+    }
+
+    .info-box h3{
+      margin:0 0 10px;
+      font-family:'Cormorant Garamond', serif;
+      font-size:30px;
+      color:var(--accent-dark);
+      font-weight:600;
+    }
+
+    .info-box p, .info-box li{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:15px;
+    }
+
+    .info-box ul{
+      margin:0;
+      padding-left:18px;
+    }
+
+    /* =========================
+       GALERÍA
+    ========================= */
+    .gallery-intro{
+      max-width:760px;
+      margin:16px auto 0;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:16px;
+    }
+
+    .gallery-grid{
+      margin-top:34px;
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .gallery-item{
+      overflow:hidden;
+      border:none;
+      border-radius:20px;
+      min-height:220px;
+      background:#f3ebe5;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      padding:0;
+      position:relative;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .45s ease;
+    }
+
+    .gallery-item:hover img{
+      transform:scale(1.05);
+    }
+
+    .gallery-1{ grid-column:span 5; min-height:300px; }
+    .gallery-2{ grid-column:span 4; }
+    .gallery-3{ grid-column:span 3; }
+    .gallery-4{ grid-column:span 3; }
+    .gallery-5{ grid-column:span 4; }
+    .gallery-6{ grid-column:span 5; min-height:300px; }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:11000;
+    }
+
+    .lightbox.open{ display:flex; }
+
+    .lightbox-content{
+      position:relative;
+      max-width:min(1000px, 94vw);
+      max-height:88vh;
+    }
+
+    .lightbox img{
+      max-width:100%;
+      max-height:88vh;
+      border-radius:16px;
+      box-shadow:0 20px 50px rgba(0,0,0,.25);
+    }
+
+    .lightbox-close{
+      position:absolute;
+      top:-14px;
+      right:-14px;
+      width:42px;
+      height:42px;
+      border:none;
+      border-radius:50%;
+      cursor:pointer;
+      background:#fff;
+      color:#222;
+      font-size:24px;
+      line-height:1;
+      box-shadow:0 8px 20px rgba(0,0,0,.18);
+    }
+
+    /* =========================
+       LISTA DE BODAS
+    ========================= */
+    .gift-note{
+      max-width:820px;
+      margin:26px auto 0;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:16px;
+    }
+
+    .iban-box{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:18px;
+      padding:18px 24px;
+      background:#fff;
+      border:1px dashed var(--accent);
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      font-family:'Cormorant Garamond', serif;
+      font-size:30px;
+      color:#5e5148;
+      letter-spacing:.5px;
+      word-break:break-word;
+      text-align:center;
+    }
+
+    .copy-btn{
+      border:none;
+      cursor:pointer;
+      background:#f7ede4;
+      color:var(--accent-dark);
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:14px;
+      font-weight:700;
+      transition:background .2s ease, transform .2s ease;
+    }
+
+    .copy-btn:hover{
+      background:#f1e3d5;
+      transform:translateY(-1px);
+    }
+
+    /* =========================
+       RSVP WHATSAPP
+    ========================= */
+    .rsvp-note{
+      max-width:820px;
+      margin:16px auto 0;
+      text-align:center;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:16px;
+    }
+
+    .whatsapp-card{
+      margin-top:34px;
+      padding:28px;
+      text-align:left;
+    }
+
+    form{
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .form-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    label{
+      font-size:14px;
+      color:#6a5f56;
+      font-weight:600;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid #e7dbd2;
+      background:#fff;
+      color:var(--text);
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+      font-size:15px;
+    }
+
+    input:focus, textarea:focus,
+    .btn:focus-visible, .nav-cta:focus-visible,
+    .menu a:focus-visible, .mobile-links a:focus-visible,
+    .tab-btn:focus-visible, .copy-btn:focus-visible,
+    .map-btn:focus-visible, .gallery-item:focus-visible{
+      outline:none;
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(200,164,125,.18);
+    }
+
+    textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .submit-wrap{
+      text-align:center;
+      margin-top:20px;
+    }
+
+    .form-note{
+      text-align:center;
+      margin-top:14px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+    .footer{
+      margin-top:40px;
+      background:#cdb39c;
+      color:#fff;
+      text-align:center;
+      padding:36px 20px;
+    }
+
+    .footer p{
+      margin:6px 0;
+      line-height:1.7;
+    }
+
+    @keyframes fadeSoft{
+      from{ opacity:0; transform:translateY(8px); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+    @media (max-width:1180px){
+      .menu{ gap:18px; }
+      .menu a{ font-size:15px; }
+    }
+
+    @media (max-width:1040px){
+      .menu{ display:none; }
+      .nav-actions{ display:none; }
+      .menu-toggle{ display:block; }
+    }
+
+    @media (max-width:900px){
+      .count-grid,
+      .story-grid,
+      .maps-grid,
+      .tab-grid,
+      .form-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        min-height:78vh;
+        background-position:center 62%;
+      }
+
+      .story-photo{
+        min-height:auto;
+      }
+
+      .gallery-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .gallery-1, .gallery-2, .gallery-3,
+      .gallery-4, .gallery-5, .gallery-6{
+        grid-column:span 1;
+        min-height:240px;
+      }
+
+      .timeline{
+        padding-left:8px;
+      }
+    }
+
+    @media (max-width:680px){
+      .top-nav{
+        height:auto;
+        min-height:86px;
+      }
+
+      .hero-space{ height:116px; }
+
+      .brand-names{ font-size:25px; }
+      .brand-date{ font-size:14px; }
+
+      .count-grid{
+        grid-template-columns:repeat(2, 1fr);
+      }
+
+      .gallery-grid{
+        grid-template-columns:1fr;
+      }
+
+      section{
+        padding:74px 0;
+      }
+
+      .timeline::before{
+        left:18px;
+      }
+
+      .timeline-item{
+        padding-left:48px;
+      }
+
+      .timeline-dot{
+        left:6px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .reveal,
+      .gallery-item img,
+      .btn,
+      .nav-cta,
+      .map-btn,
+      .copy-btn{
+        transition:none !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- MENÚ -->
-<nav>
-  <div class="nav-left">Irene & Karlos</div>
+  <!-- MENÚ -->
+  <nav class="top-nav" id="topNav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <div>
+          <div class="brand-names">Irene & Karlos</div>
+          <div class="brand-date">12 de septiembre de 2026</div>
+        </div>
+      </div>
 
-  <div class="nav-center">
-    #historiaHistoria</a>
-    #eventoEl día</a>
-    #fiestaFiesta</a>
-    #galeriaFotos</a>
-    #listaRegalo</a>
+      <div class="menu" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Nuestra Historia</a>
+        <a href="#timeline">El Día</a>
+        <a href="#info">Información útil</a>
+        <a href="#fiesta">Recena y Fiesta</a>
+        <a href="#galeria">Galería</a>
+        <a href="#lista">Lista de bodas</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="nav-cta" href="#rsvp">CONFIRMAR ASISTENCIA</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
+    </div>
+
+    <div class="mobile-panel" id="mobilePanel">
+      <div class="mobile-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#historia">Nuestra Historia</a>
+        <a href="#timeline">El Día</a>
+        <a href="#info">Información útil</a>
+        <a href="#fiesta">Recena y Fiesta</a>
+        <a href="#galeria">Galería</a>
+        <a href="#lista">Lista de bodas</a>
+        <a class="mobile-rsvp" href="#rsvp">CONFIRMAR ASISTENCIA</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero-space"></div>
+
+  <!-- PORTADA -->
+  <header class="hero" id="inicio">
+    <div class="hero-card reveal">
+      <div class="hero-kicker">Guardad la fecha…</div>
+      <h1 class="hero-title">Irene & Karlos</h1>
+
+      <div class="hero-copy">
+        <p><strong>¡Porque nos damos el sí, quiero!</strong><br>
+        Y queremos que tú estés ahí para verlo.</p>
+
+        <p><strong>12 de septiembre a las 12:00 h</strong></p>
+
+        <p>¡Bienvenidos a nuestra mayor aventura!</p>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#rsvp">Confirmar asistencia</a>
+        <a class="btn btn-ghost" href="#timeline">Ver el gran día</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- CUENTA ATRÁS -->
+  <section id="countdown-section">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Cuenta atrás</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Cada día que pasa queda un poco menos para celebrar juntos este momento tan especial.
+        </p>
+
+        <div class="count-wrapper">
+          <div id="countdownText" class="count-main">Cargando cuenta atrás…</div>
+
+          <div class="count-grid">
+            <div class="count-box">
+              <strong id="days">0</strong>
+              <span>Días</span>
+            </div>
+            <div class="count-box">
+              <strong id="hours">0</strong>
+              <span>Horas</span>
+            </div>
+            <div class="count-box">
+              <strong id="minutes">0</strong>
+              <span>Minutos</span>
+            </div>
+            <div class="count-box">
+              <strong id="seconds">0</strong>
+              <span>Segundos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUESTRA HISTORIA -->
+  <section id="historia">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Nuestra Historia</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Un viaje que comenzó hace 22 años y que hoy nos lleva al momento más bonito de todos.
+        </p>
+
+        <div class="story-grid">
+          <div class="story-text card">
+            <p>
+              Hace 22 años nos cruzamos por primera vez, y sin saberlo, la vida nos tenía preparado el mejor de los viajes.
+            </p>
+
+            <p>
+              Empezamos siendo unos simples conocidos, y después de un tiempo pasamos a ser grandes amigos; y, sin darnos cuenta, nos enamoramos; entonces pasamos a ser compañeros de vida.
+            </p>
+
+            <p>
+              Ahora, por fin, seremos marido y mujer.
+            </p>
+
+            <p>
+              Queremos agradecer de corazón a todos los que compartáis este día con nosotros, vuestra presencia es el mejor regalo en el día más especial de nuestras vidas.
+            </p>
+
+            <p>
+              Nos hace muchísima ilusión tu asistencia.
+            </p>
+          </div>
+
+          <div class="story-photo card">
+            <!-- =====================================================
+              FOTO "NUESTRA HISTORIA"
+              Cambia SOLO el nombre del archivo de src=""
+              Ejemplo: src="nuestra-historia.jpg"
+            ====================================================== -->
+            <img src="IMAGEN-HISTORIA.jpg" alt="Foto de Irene y Karlos en la sección Nuestra Historia">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">El Gran Día</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Así será el plan del día, para que no os perdáis ni un solo momento.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot">⛪</div>
+            <div class="timeline-card card">
+              <div class="timeline-time">12:00 h</div>
+              <h3 class="timeline-title">Ceremonia religiosa</h3>
+              <p class="timeline-text">
+                Comenzaremos el día en la Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">🍽</div>
+            <div class="timeline-card card">
+              <div class="timeline-time">13:15 h</div>
+              <h3 class="timeline-title">Banquete en Beko Errota</h3>
+              <p class="timeline-text">
+                Tras la ceremonia, disfrutaremos de un menú exquisito acompañados de nuestros seres queridos.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">💃</div>
+            <div class="timeline-card card">
+              <div class="timeline-time">17:30 h</div>
+              <h3 class="timeline-title">Baile y tarde de fiesta</h3>
+              <p class="timeline-text">
+                Música con DJ, risas, diversión y, sobre todo, muchas ganas de bailar sin movernos del lugar.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">🥪</div>
+            <div class="timeline-card card">
+              <div class="timeline-time">21:30 h</div>
+              <h3 class="timeline-title">Recena</h3>
+              <p class="timeline-text">
+                Después de tanto bailar, saciaremos el hambre con una recena también en Beko Errota.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot">🎶</div>
+            <div class="timeline-card card">
+              <div class="timeline-time">23:30 h</div>
+              <h3 class="timeline-title">Fiesta final en Q Hondarribia</h3>
+              <p class="timeline-text">
+                Para quien quiera seguir celebrando, la fiesta continúa hasta que el cuerpo aguante.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="maps-grid">
+          <div class="map-card">
+            <h3>Ceremonia</h3>
+            <p>
+              El día comienza a las <strong>12:00 horas</strong> con una preciosa ceremonia religiosa en la
+              <strong>Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano</strong>.
+            </p>
+            <div class="map-actions">
+              <a class="map-btn primary" href="https://www.google.com/maps/search/?api=1&query=Parroquial+de+Nuestra+Se%C3%B1ora+de+la+Asunci%C3%B3n+y+del+Manzano" target="_blank" rel="noopener noreferrer">
+                Abrir Google Maps
+              </a>
+              <a class="map-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Parroquial+de+Nuestra+Se%C3%B1ora+de+la+Asunci%C3%B3n+y+del+Manzano" target="_blank" rel="noopener noreferrer">
+                Cómo llegar
+              </a>
+            </div>
+          </div>
+
+          <div class="map-card">
+            <h3>Banquete · Beko Errota</h3>
+            <p>
+              El banquete empieza a las <strong>13:15 horas</strong> en <strong>Restaurante Beko Errota</strong>.
+            </p>
+            <p>
+              [AQUÍ PODÉIS INDICAR SI HAY TRANSPORTE / BUS]
+            </p>
+            <div class="map-actions">
+              <a class="map-btn primary" href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota/@43.3536697,-1.814181,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109a096ffab47:0x70e48b3d4f8d24a6!8m2!3d43.3536658!4d-1.8116061!16s%2Fg%2F1v1vfj1z?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                Abrir Google Maps
+              </a>
+              <a class="map-btn secondary" href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota/@43.3536697,-1.814181,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109a096ffab47:0x70e48b3d4f8d24a6!8m2!3d43.3536658!4d-1.8116061!16s%2Fg%2F1v1vfj1z?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                Cómo llegar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO ÚTIL Y FIESTA -->
+  <section id="info">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Información para invitados</h2>
+        <div class="separator"></div>
+        <p class="section-subtitle">
+          Aquí encontraréis toda la información práctica para disfrutar del día con total tranquilidad.
+        </p>
+
+        <div class="tab-switchers" role="tablist" aria-label="Pestañas de información">
+          <button class="tab-btn active" role="tab" aria-selected="true" onclick="openTab('tabInfo', this)">Información útil</button>
+          <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab('tabFiesta', this)">Recena y Fiesta</button>
+        </div>
+
+        <div id="tabInfo" class="tab-panel active card" role="tabpanel">
+          <div class="tab-grid">
+            <div class="info-box">
+              <h3>Horario general</h3>
+              <p>
+                <strong>12:00 h</strong> – Ceremonia religiosa<br>
+                <strong>13:15 h</strong> – Banquete en Beko Errota
+              </p>
+            </div>
+
+            <div class="info-box">
+              <h3>Desplazamientos</h3>
+              <p>[INDICAR AQUÍ SI HABRÁ AUTOBÚS / TRANSPORTE / PARKING / TAXIS]</p>
+            </div>
+
+            <div class="info-box">
+              <h3>Dress code</h3>
+              <p>[AÑADIR AQUÍ EL CÓDIGO DE VESTIR SI QUERÉIS]</p>
+            </div>
+
+            <div class="info-box">
+              <h3>Nota importante</h3>
+              <p>No aceptamos acompañantes a los asistentes, pero todos estáis invitados al baile en el Q Hondarribia.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tabFiesta" class="tab-panel card" role="tabpanel">
+          <div class="tab-grid">
+            <div class="info-box">
+              <h3>Tarde de baile</h3>
+              <p>
+                ¡El día no acaba! A las <strong>17:30 h</strong> bailaremos para bajar la comida, pero sin movernos del lugar. Pasaremos una tarde estupenda escuchando música con DJ, riendo, divirtiéndonos y, sobre todo, ¡bailando!
+              </p>
+            </div>
+
+            <div class="info-box">
+              <h3>Recena</h3>
+              <p>
+                Después de tanto bailar saciaremos el hambre con una recena en el mismo <strong>Beko Errota</strong>, a las <strong>21:30 h</strong>.
+              </p>
+            </div>
+
+            <div class="info-box">
+              <h3>Después… sigue la fiesta</h3>
+              <p>
+                Para quien quiera o se haya quedado con ganas de un poco más, ¡la fiesta continúa!
+              </p>
+            </div>
+
+            <div class="info-box" id="fiesta">
+              <h3>Q Hondarribia</h3>
+              <p>
+                A partir de las <strong>23:30 h</strong> nos trasladamos a la discoteca <strong>Q Hondarribia</strong>, para terminar este gran día con una gran noche. Bailaremos hasta que el cuerpo aguante, estáis todos invitados.
+              </p>
+              <p style="margin-top:10px;">
+                Porque lo importante es nunca dejar de bailar.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="maps-grid">
+          <div class="map-card">
+            <h3>Beko Errota</h3>
+            <p>
+              Aquí seguiremos celebrando durante la tarde y también tendrá lugar la recena.
+            </p>
+            <div class="map-actions">
+              <a class="map-btn primary" href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota/@43.3536697,-1.814181,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109a096ffab47:0x70e48b3d4f8d24a6!8m2!3d43.3536658!4d-1.8116061!16s%2Fg%2F1v1vfj1z?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                Ver ubicación
+              </a>
+            </div>
+          </div>
+
+          <div class="map-card">
+            <h3>Q Hondarribia</h3>
+            <p>
+              La fiesta final será en <strong>Q Hondarribia</strong>, a partir de las <strong>23:30 h</strong>.
+            </p>
+            <div class="map-actions">
+              <a class="map-btn primary" href="https://www.google.com/maps/place/Q+Hondarribia/@43.3733754,-1.7989352,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109ba18ae7c2f:0x756a5248c6e1c5fe!8m2!3d43.3733715!4d-1.7963603!16s%2Fg%2F11tgd67tsy?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                Abrir Google Maps
+              </a>
+              <a class="map-btn secondary" href="https://www.google.com/maps/place/Q+Hondarribia/@43.3733754,-1.7989352,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109ba18ae7c2f:0x756a5248c6e1c5fe!8m2!3d43.3733715!4d-1.7963603!16s%2Fg%2F11tgd67tsy?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                Cómo llegar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Galería</h2>
+        <div class="separator"></div>
+        <p class="gallery-intro">
+          Aquí podéis añadir vuestras fotos favoritas. La galería se abre en grande al hacer clic.
+        </p>
+
+        <div class="gallery-grid">
+          <!-- =====================================================
+            GALERÍA:
+            Cambia SOLO los nombres de archivo de src="" y data-full=""
+            por tus fotos reales.
+            Todas las fotos deben estar en la MISMA carpeta que index.html
+          ====================================================== -->
+
+          <button class="gallery-item gallery-1" type="button" data-full="GALERIA-1.jpg" aria-label="Abrir foto 1">
+            <img src="GALERIA-1.jpg" alt="Foto 1 de la galería" loading="lazy">
+          </button>
+
+          <button class="gallery-item gallery-2" type="button" data-full="GALERIA-2.jpg" aria-label="Abrir foto 2">
+            <img src="GALERIA-2.jpg" alt="Foto 2 de la galería" loading="lazy">
+          </button>
+
+          <button class="gallery-item gallery-3" type="button" data-full="GALERIA-3.jpg" aria-label="Abrir foto 3">
+            <img src="GALERIA-3.jpg" alt="Foto 3 de la galería" loading="lazy">
+          </button>
+
+          <button class="gallery-item gallery-4" type="button" data-full="GALERIA-4.jpg" aria-label="Abrir foto 4">
+            <img src="GALERIA-4.jpg" alt="Foto 4 de la galería" loading="lazy">
+          </button>
+
+          <button class="gallery-item gallery-5" type="button" data-full="GALERIA-5.jpg" aria-label="Abrir foto 5">
+            <img src="GALERIA-5.jpg" alt="Foto 5 de la galería" loading="lazy">
+          </button>
+
+          <button class="gallery-item gallery-6" type="button" data-full="GALERIA-6.jpg" aria-label="Abrir foto 6">
+            <img src="GALERIA-6.jpg" alt="Foto 6 de la galería" loading="lazy">
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTA DE BODAS -->
+  <section id="lista">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">Lista de bodas</h2>
+        <div class="separator"></div>
+
+        <p class="gift-note">
+          El regalo es opcional, la asistencia, obligatoria; pero si quieres aportar tu granito de arena para nuestra luna de miel, os dejamos por aquí el número de cuenta:
+        </p>
+
+        <div class="iban-box">
+          <span id="ibanText">ES55 2095 5092 0710 7216 1531</span>
+          <button class="copy-btn" id="copyIbanBtn" type="button">Copiar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP WHATSAPP -->
+  <section id="rsvp">
+    <div class="container">
+      <div class="reveal">
+        <h2 class="section-title">¿Nos confirmas tu asistencia?</h2>
+        <div class="separator"></div>
+
+        <p class="rsvp-note">
+          Nos hace muchísima ilusión tu asistencia.
+          <br><br>
+          <strong>*No aceptamos acompañantes a los asistentes, pero todos estáis invitados al baile en el Q Hondarribia.</strong>
+        </p>
+
+        <div class="whatsapp-card card">
+          <form id="whatsappForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="nombre">Nombre y apellidos</label>
+                <input id="nombre" type="text" placeholder="Escribe tu nombre" required>
+              </div>
+
+              <div class="field">
+                <label for="asistentes">Número de asistentes</label>
+                <input id="asistentes" type="number" min="1" max="1" value="1" required>
+              </div>
+            </div>
+
+            <div class="field" style="margin-top:18px;">
+              <label for="comentarios">Comentarios</label>
+              <textarea id="comentarios" placeholder="Alergias, observaciones o un mensaje bonito para los novios..."></textarea>
+            </div>
+
+            <div class="submit-wrap">
+              <button type="submit" class="btn btn-primary">Enviar por WhatsApp</button>
+            </div>
+          </form>
+
+          <p class="form-note">
+            Este formulario no almacena datos online: al pulsar el botón, se abrirá WhatsApp con el mensaje ya preparado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Gracias por formar parte de nuestro día 💕</p>
+    <p>Irene & Karlos · 12 de septiembre de 2026</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen">×</button>
+      <img id="lightboxImage" src="" alt="Imagen ampliada de la galería">
+    </div>
   </div>
 
-  <div class="nav-right">
-    #rsvpConfirmar asistencia</a>
-  </div>
-</nav>
+  <script>
+    /* =========================
+       MENÚ CON EFECTO AL SCROLL
+    ========================= */
+    const topNav = document.getElementById('topNav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) topNav.classList.add('scrolled');
+      else topNav.classList.remove('scrolled');
+    });
 
-<div class="top-space"></div>
+    /* =========================
+       MENÚ MÓVIL
+    ========================= */
+    const menuToggle = document.getElementById('menuToggle');
+    const mobilePanel = document.getElementById('mobilePanel');
+    const mobileLinks = document.querySelectorAll('.mobile-links a');
 
-<!-- PORTADA -->
-<header>
-  <div class="hero">
-    <h1>Irene & Karlos</h1>
-    <p>Guardad la fecha...</p>
-    <p><strong>¡Porque nos damos el sí, quiero!</strong></p>
-    <p>12 de septiembre a las 12:00h</p>
-    <p>¡Bienvenidos a nuestra mayor aventura!</p>
-  </div>
-</header>
+    menuToggle.addEventListener('click', () => {
+      mobilePanel.classList.toggle('open');
+    });
 
-<!-- HISTORIA -->
-<section id="historia" class="reveal">
-<h2>Nuestra historia</h2>
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobilePanel.classList.remove('open');
+      });
+    });
 
-<div class="card">
-<p>Hace 22 años nos cruzamos por primera vez...</p>
-<p>Ahora seremos marido y mujer.</p>
-</div>
+    /* =========================
+       ANIMACIÓN SCROLL
+    ========================= */
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
 
-<!-- 📸 FOTO -->
-IMG-HISTORIA.jpg
-</section>
+    revealElements.forEach(el => observer.observe(el));
 
-<!-- EVENTO -->
-<section id="evento" class="reveal">
-<h2>El gran día</h2>
+    /* =========================
+       TABS
+    ========================= */
+    function openTab(tabId, button) {
+      const panels = document.querySelectorAll('.tab-panel');
+      const buttons = document.querySelectorAll('.tab-btn');
 
-<div class="card">
-<p>12:00 Iglesia</p>
+      panels.forEach(panel => panel.classList.remove('active'));
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
 
-<div class="map-box">
-https://www.google.com/maps
-Ver ubicación</a>
-</div>
-</div>
-</section>
-
-<!-- FIESTA -->
-<section id="fiesta" class="reveal">
-<h2>Recena y fiesta</h2>
-
-<div class="card">
-<p>17:30 baile</p>
-<p>21:30 recena</p>
-<p>23:30 Q Hondarribia</p>
-</div>
-</section>
-
-<!-- 🎞 GALERÍA NUEVA -->
-<section id="galeria" class="reveal">
-
-<h2>Galería</h2>
-
-<div class="gallery">
-
-  <!-- 📸 CAMBIA ESTAS IMÁGENES -->
-  <img src="foto1.jpg">
-  <img src="foto2.jpg">
-  <img src="foto3.jpg">
-  <img src="foto4.jpg">
-  <img src="foto5.jpg">
-  <img src="foto6.jpg">
-
-</div>
-
-</section>
-
-<!-- LISTA -->
-<section id="lista" class="reveal">
-<h2>Lista de bodas</h2>
-
-<div class="card">
-<p>El regalo es opcional 💛</p>
-<p><strong>ES55 2095 5092 0710 7216 1531</strong></p>
-</div>
-
-</section>
-
-<!-- RSVP -->
-<section id="rsvp" class="reveal">
-<h2>Confirmar asistencia</h2>
-
-<div class="card">
-<form>
-<input placeholder="Nombre"><br><br>
-<input placeholder="Invitados"><br><br>
-<textarea placeholder="Mensaje"></textarea><br><br>
-<button class="button">Enviar</button>
-</form>
-</div>
-
-</section>
-
-<footer style="text-align:center;padding:30px;">
-Gracias por formar parte de nuestro día 💕
-</footer>
-
-<script>
-/* ANIMACIÓN SCROLL */
-const reveals=document.querySelectorAll('.reveal');
-
-window.addEventListener('scroll',()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
-      el.classList.add('visible');
+      document.getElementById(tabId).classList.add('active');
+      button.classList.add('active');
+      button.setAttribute('aria-selected', 'true');
     }
-  })
-});
-</script>
 
+    /* =========================
+       CUENTA ATRÁS
+    ========================= */
+    const weddingDate = new Date("2026-09-12T12:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance <= 0) {
+        document.getElementById("countdownText").textContent = "¡Ya es el gran día!";
+        document.getElementById("days").textContent = "0";
+        document.getElementById("hours").textContent = "0";
+        document.getElementById("minutes").textContent = "0";
+        document.getElementById("seconds").textContent = "0";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById("countdownText").textContent = `${days} días para celebrar juntos`;
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    /* =========================
+       MENÚ ACTIVO SEGÚN SECCIÓN
+    ========================= */
+    const sections = document.querySelectorAll("section[id], header[id]");
+    const navLinks = document.querySelectorAll(".menu a");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        const sectionHeight = section.offsetHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    /* =========================
+       LIGHTBOX DE GALERÍA
+    ========================= */
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const full = item.getAttribute('data-full');
+        lightboxImage.src = full;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = "";
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+
+    /* =========================
+       COPIAR IBAN
+    ========================= */
+    const copyBtn = document.getElementById('copyIbanBtn');
+    const ibanText = document.getElementById('ibanText');
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(ibanText.textContent.trim());
+        copyBtn.textContent = 'Copiado';
+        setTimeout(() => copyBtn.textContent = 'Copiar', 1600);
+      } catch {
+        copyBtn.textContent = 'No se pudo copiar';
+        setTimeout(() => copyBtn.textContent = 'Copiar', 1600);
+      }
+    });
+
+    /* =========================
+       RSVP POR WHATSAPP
+       IMPORTANTE:
+       Cambia SOLO el número de abajo por vuestro número.
+       Formato internacional SIN + ni espacios.
+       Ejemplo España: 34600111222
+    ========================= */
+    const WHATSAPP_NUMBER = "34600111222";
+
+    const whatsappForm = document.getElementById('whatsappForm');
+    whatsappForm.addEventListener('submit', function(event){
+      event.preventDefault();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const asistentes = document.getElementById('asistentes').value.trim();
+      const comentarios = document.getElementById('comentarios').value.trim();
+
+      const mensaje =
+`Hola Irene y Karlos 💕
+Quiero confirmar mi asistencia a vuestra boda.
+
+Nombre: ${nombre}
+Número de asistentes: ${asistentes}
+Comentarios: ${comentarios || "Ninguno"}
+
+¡Nos vemos el 12 de septiembre!`;
+
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
+      window.open(url, '_blank');
+    });
+  </script>
 </body>
 </html>
