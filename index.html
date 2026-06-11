@@ -8,28 +8,17 @@
 <style>
 :root{
   --accent:#c8a47d;
-  --bg:#fcf8f5;
 }
 
 /* GENERAL */
 body{
   margin:0;
   font-family:Georgia, serif;
-  background:var(--bg);
+  background:#fcf8f5;
   color:#4a3f36;
-  scroll-behavior:smooth;
 }
 
-section{
-  padding:80px 20px;
-  text-align:center;
-}
-
-h2{
-  font-size:36px;
-}
-
-/* MENÚ FIXED */
+/* ===== MENÚ ===== */
 nav{
   position:fixed;
   top:0;
@@ -38,19 +27,31 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:15px 30px;
+  padding:18px 40px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.05);
   z-index:1000;
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
-nav a{
-  margin:0 10px;
+.nav-left{ font-size:22px; }
+
+.nav-center{
+  display:flex;
+  gap:25px;
+}
+
+.nav-center a{
+  font-size:18px;
   text-decoration:none;
-  color:#555;
+  color:#666;
 }
 
-nav a:hover{
+.nav-center a:hover{
   color:var(--accent);
+}
+
+.nav-right{
+  min-width:200px;
+  text-align:right;
 }
 
 .nav-btn{
@@ -58,35 +59,40 @@ nav a:hover{
   padding:10px 18px;
   border-radius:12px;
   color:var(--accent);
+  text-decoration:none;
 }
 
 /* ESPACIO MENÚ */
-.top-space{
-  height:90px;
-}
+.top-space{ height:90px; }
 
-/* PORTADA */
+/* ===== PORTADA ===== */
 header{
   height:80vh;
 
-  /* 📸 FOTO PRINCIPAL (PORTADA) */
-  /* 👉 CAMBIA ESTA RUTA POR TU FOTO */
-  background:<img rlc ("AVENTUREROS.jpg") center/cover no-repeat;
+  /* 📸 FOTO PORTADA */
+  background:url("IMG-PORTADA.jpg") center 65%/cover no-repeat;
 
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   color:white;
-
   margin-top:20px;
 }
 
 .hero{
-  background:rgba(0,0,0,0.35);
+  background:rgba(0,0,0,0.4);
   padding:40px;
   border-radius:20px;
   max-width:600px;
 }
+
+/* ===== SECCIONES ===== */
+section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+h2{ font-size:40px; }
 
 /* TARJETAS */
 .card{
@@ -95,7 +101,6 @@ header{
   border-radius:18px;
   max-width:900px;
   margin:20px auto;
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);
 }
 
 /* MAPA */
@@ -111,19 +116,59 @@ header{
   background:var(--accent);
   color:white;
   padding:12px 20px;
-  border-radius:25px;
-  text-decoration:none;
+  border-radius:20px;
 }
 
-/* ANIMACIÓN */
+/* ===== GALERÍA ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  max-width:1000px;
+  margin:30px auto;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+  transition:0.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* ===== ANIMACIONES ===== */
 .reveal{
   opacity:0;
-  transform:translateY(30px);
-  transition:0.6s;
+  transform:translateY(40px);
+  transition:0.8s ease;
 }
+
 .reveal.visible{
   opacity:1;
   transform:translateY(0);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .nav-center{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .nav-right{
+    text-align:center;
+  }
+
+  header{
+    height:70vh;
+  }
 }
 </style>
 </head>
@@ -132,169 +177,113 @@ header{
 
 <!-- MENÚ -->
 <nav>
-  <div><strong>Irene & Karlos</strong></div>
+  <div class="nav-left">Irene & Karlos</div>
 
-  <div>
-    <a href="#historia">Historia</a>
-    <a href="#evento">El día</a>
-    <a href="#fiesta">Fiesta</a>
-    <a href="#lista">Regalo</a>
+  <div class="nav-center">
+    #historiaHistoria</a>
+    #eventoEl día</a>
+    #fiestaFiesta</a>
+    #galeriaFotos</a>
+    #listaRegalo</a>
   </div>
 
-  <a href="#rsvp" class="nav-btn">Confirmar asistencia</a>
+  <div class="nav-right">
+    #rsvpConfirmar asistencia</a>
+  </div>
 </nav>
 
 <div class="top-space"></div>
 
 <!-- PORTADA -->
 <header>
-  <div class="hero reveal">
-
-    <h1>Irene & Karlos | 12 de Septiembre de 2026 </h1>
-
+  <div class="hero">
+    <h1>Irene & Karlos</h1>
     <p>Guardad la fecha...</p>
     <p><strong>¡Porque nos damos el sí, quiero!</strong></p>
-    <p>Y queremos que tú estés ahí para verlo.</p>
-
-    <p style="font-size:20px;">
-      <strong>12 de septiembre a las 12:00h</strong>
-    </p>
-
-    <h2><strong>¡Bienvenidos a nuestra mayor aventura!</strong></h2>
-
+    <p>12 de septiembre a las 12:00h</p>
+    <p>¡Bienvenidos a nuestra mayor aventura!</p>
   </div>
 </header>
 
 <!-- HISTORIA -->
 <section id="historia" class="reveal">
-
 <h2>Nuestra historia</h2>
 
 <div class="card">
-
-<p>Hace 22 años nos cruzamos por primera vez, y sin saberlo, la vida nos tenía preparado el mejor de los viajes.</p>
-
-<p>Empezamos siendo unos simples conocidos, y después de un tiempo pasamos a ser grandes amigos; y, sin darnos cuenta, nos enamoramos.</p>
-
-<p>Entonces pasamos a ser compañeros de vida. Ahora, por fin, seremos marido y mujer.</p>
-
-<p>Queremos agradecer de corazón a todos los que compartáis este día con nosotros, vuestra presencia es el mejor regalo.</p>
-
-<p>Nos hace muchísima ilusión tu asistencia.</p>
-
+<p>Hace 22 años nos cruzamos por primera vez...</p>
+<p>Ahora seremos marido y mujer.</p>
 </div>
 
-<!-- 📸 FOTO HISTORIA -->
-<!-- 👉 CAMBIA ESTA IMAGEN -->
-<img src=".jpg" style="max-width:500px;border-radius:15px;margin-top:15px;">
-
+<!-- 📸 FOTO -->
+IMG-HISTORIA.jpg
 </section>
 
 <!-- EVENTO -->
 <section id="evento" class="reveal">
-
 <h2>El gran día</h2>
 
 <div class="card">
-
-<p><strong>Ceremonia</strong></p>
-
-<p>12:00 horas en la iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano.</p>
+<p>12:00 Iglesia</p>
 
 <div class="map-box">
-<a href="https://www.google.com/maps" target="_blank">
-Ver ubicación iglesia
-</a>
+https://www.google.com/maps
+Ver ubicación</a>
 </div>
-
-<hr>
-
-<p><strong>Banquete</strong></p>
-
-<p>
-Restaurante Beko Errota — 13:15 horas.
-</p>
-
-<p>[AÑADIR AQUÍ SI HAY AUTOBÚS]</p>
-
-<div class="map-box">
-<a href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota" target="_blank">
-Ver restaurante
-</a>
 </div>
-
-</div>
-
 </section>
 
 <!-- FIESTA -->
 <section id="fiesta" class="reveal">
-
 <h2>Recena y fiesta</h2>
 
 <div class="card">
-
-<p>¡El día no acaba!</p>
-
-<p>A las 17:30 bailaremos sin movernos del lugar.</p>
-
-<p>A las 21:30 habrá recena en Beko Errota.</p>
-
-<p>Y para los más aventureros...</p>
-
-<p><strong>Fiesta en Q Hondarribia desde las 23:30</strong></p>
-
-<div class="map-box">
-<a href="https://www.google.com/maps/place/Q+Hondarribia" target="_blank">
-Ver discoteca
-</a>
+<p>17:30 baile</p>
+<p>21:30 recena</p>
+<p>23:30 Q Hondarribia</p>
 </div>
+</section>
 
-<p>Porque lo importante es nunca dejar de bailar.</p>
+<!-- 🎞 GALERÍA NUEVA -->
+<section id="galeria" class="reveal">
+
+<h2>Galería</h2>
+
+<div class="gallery">
+
+  <!-- 📸 CAMBIA ESTAS IMÁGENES -->
+  <img src="foto1.jpg">
+  <img src="foto2.jpg">
+  <img src="foto3.jpg">
+  <img src="foto4.jpg">
+  <img src="foto5.jpg">
+  <img src="foto6.jpg">
 
 </div>
 
 </section>
 
-<!-- REGALO -->
+<!-- LISTA -->
 <section id="lista" class="reveal">
-
 <h2>Lista de bodas</h2>
 
 <div class="card">
-
-<p>El regalo es opcional, la asistencia obligatoria 💛</p>
-
-<p>Si queréis aportar para nuestra luna de miel:</p>
-
+<p>El regalo es opcional 💛</p>
 <p><strong>ES55 2095 5092 0710 7216 1531</strong></p>
-
 </div>
 
 </section>
 
 <!-- RSVP -->
 <section id="rsvp" class="reveal">
-
 <h2>Confirmar asistencia</h2>
 
 <div class="card">
-
-<p>¿Nos confirmas tu asistencia?</p>
-
-<p><em>*No aceptamos acompañantes, pero todos están invitados al baile.</em></p>
-
 <form>
-<input type="text" placeholder="Nombre"><br><br>
-<input type="number" placeholder="Número de asistentes"><br><br>
-<textarea placeholder="Comentarios"></textarea><br><br>
+<input placeholder="Nombre"><br><br>
+<input placeholder="Invitados"><br><br>
+<textarea placeholder="Mensaje"></textarea><br><br>
 <button class="button">Enviar</button>
 </form>
-
-<p style="font-size:14px;margin-top:10px;">
-Este formulario es ilustrativo.
-</p>
-
 </div>
 
 </section>
@@ -304,10 +293,12 @@ Gracias por formar parte de nuestro día 💕
 </footer>
 
 <script>
+/* ANIMACIÓN SCROLL */
 const reveals=document.querySelectorAll('.reveal');
+
 window.addEventListener('scroll',()=>{
   reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
       el.classList.add('visible');
     }
   })
