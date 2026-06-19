@@ -55,7 +55,8 @@
 
     button,
     input,
-    textarea{
+    textarea,
+    select{
       font:inherit;
     }
 
@@ -406,26 +407,33 @@
       transform:translateY(-2px);
     }
 
-    .calendar-links{
-      margin-top:14px;
+    .action-buttons{
+      margin-top:22px;
       display:flex;
-      gap:12px;
       justify-content:center;
+      gap:14px;
       flex-wrap:wrap;
-      font-size:13px;
-      font-weight:600;
     }
 
-    .calendar-links a{
+    .secondary-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 22px;
+      border-radius:999px;
+      border:1.6px solid var(--accent);
+      background:#fffaf7;
+      color:var(--accent-dark);
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:.3px;
+      transition:all .25s ease;
+    }
+
+    .secondary-btn:hover{
+      background:var(--accent);
       color:#fff;
-      opacity:.95;
-      border-bottom:1px solid rgba(255,255,255,.4);
-      padding-bottom:2px;
-    }
-
-    .calendar-links a:hover{
-      opacity:1;
-      border-bottom-color:#fff;
+      transform:translateY(-1px);
     }
 
     /* =========================
@@ -808,6 +816,53 @@
       padding-left:18px;
     }
 
+    .small-link{
+      display:inline-block;
+      margin-top:10px;
+      color:var(--accent-dark);
+      font-weight:700;
+      border-bottom:1px solid var(--accent);
+      padding-bottom:2px;
+    }
+
+    /* =========================
+       BUS CARD
+    ========================= */
+    .bus-card{
+      margin-top:24px;
+      padding:28px;
+      text-align:left;
+    }
+
+    .bus-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:18px;
+    }
+
+    select, input, textarea{
+      width:100%;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid #e7dbd2;
+      background:#fff;
+      color:var(--text);
+      outline:none;
+      transition:border-color .2s ease, box-shadow .2s ease;
+      font-size:15px;
+    }
+
+    select:focus, input:focus, textarea:focus,
+    .btn:focus-visible, .nav-cta:focus-visible,
+    .menu a:focus-visible, .mobile-links a:focus-visible,
+    .tab-btn:focus-visible, .copy-btn:focus-visible,
+    .map-btn:focus-visible, .gallery-item:focus-visible,
+    .secondary-btn:focus-visible{
+      outline:none;
+      border-color:var(--accent);
+      box-shadow:0 0 0 4px rgba(200,164,125,.18);
+    }
+
     /* =========================
        GALERÍA
     ========================= */
@@ -983,28 +1038,6 @@
       font-weight:700;
     }
 
-    input, textarea{
-      width:100%;
-      padding:14px 16px;
-      border-radius:16px;
-      border:1px solid #e7dbd2;
-      background:#fff;
-      color:var(--text);
-      outline:none;
-      transition:border-color .2s ease, box-shadow .2s ease;
-      font-size:15px;
-    }
-
-    input:focus, textarea:focus,
-    .btn:focus-visible, .nav-cta:focus-visible,
-    .menu a:focus-visible, .mobile-links a:focus-visible,
-    .tab-btn:focus-visible, .copy-btn:focus-visible,
-    .map-btn:focus-visible, .gallery-item:focus-visible{
-      outline:none;
-      border-color:var(--accent);
-      box-shadow:0 0 0 4px rgba(200,164,125,.18);
-    }
-
     textarea{
       min-height:130px;
       resize:vertical;
@@ -1062,7 +1095,8 @@
       .count-grid,
       .story-grid,
       .maps-grid,
-      .tab-grid{
+      .tab-grid,
+      .bus-grid{
         grid-template-columns:1fr;
       }
 
@@ -1144,7 +1178,8 @@
       .nav-cta,
       .map-btn,
       .copy-btn,
-      .hero-card{
+      .hero-card,
+      .secondary-btn{
         transition:none !important;
         animation:none !important;
         opacity:1 !important;
@@ -1216,7 +1251,7 @@
         <a class="btn btn-primary" href="#rsvp">Confirmar asistencia</a>
         <a class="btn btn-ghost" href="#timeline">Ver el gran día</a>
       </div>
-
+    </div>
   </header>
 
   <!-- CUENTA ATRÁS -->
@@ -1289,7 +1324,6 @@
           </div>
 
           <div class="story-photo card">
-            <!-- CAMBIA ESTA IMAGEN POR VUESTRA FOTO DE HISTORIA -->
             <img src="BESO DEBAJO DEL ARCO FLOR.jpg" alt="Foto de Irene y Karlos en su historia juntos">
           </div>
         </div>
@@ -1387,7 +1421,7 @@
               El banquete empieza a las <strong>13:15 horas</strong> en <strong>Restaurante Beko Errota</strong>.
             </p>
             <p>
-              [AQUÍ PODÉIS INDICAR SI HAY TRANSPORTE / BUS]
+              Si necesitas transporte, inscríbete en el apartado de autobuses más abajo.
             </p>
             <div class="map-actions">
               <a class="map-btn primary" href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota/@43.3536697,-1.814181,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109a096ffab47:0x70e48b3d4f8d24a6!8m2!3d43.3536658!4d-1.8116061!16s%2Fg%2F1v1vfj1z?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
@@ -1430,7 +1464,10 @@
 
             <div class="info-box">
               <h3>Desplazamientos</h3>
-              <p>[INDICAR AQUÍ SI HABRÁ AUTOBÚS / TRANSPORTE / PARKING / TAXIS]</p>
+              <p>
+                Si necesitas transporte, inscríbete aquí:
+              </p>
+              <a class="small-link" href="#autobus">Ir al formulario de autobús</a>
             </div>
 
             <div class="info-box">
@@ -1488,6 +1525,59 @@
               </p>
             </div>
           </div>
+        </div>
+
+        <!-- FORMULARIO AUTOBÚS -->
+        <div class="bus-card card" id="autobus">
+          <h3 style="margin-top:0; text-align:center; font-family:'Cormorant Garamond', serif; font-size:36px; color:#5a4a3e;">Autobuses</h3>
+          <p style="text-align:center; color:var(--muted); margin-top:0;">
+            Si necesitas transporte, inscríbete aquí.
+          </p>
+
+          <form id="busForm">
+            <div class="field">
+              <label for="busNombre">Nombre y apellidos</label>
+              <input id="busNombre" type="text" placeholder="Escribe tu nombre" required />
+            </div>
+
+            <div class="bus-grid" style="margin-top:18px;">
+              <div class="field">
+                <label for="busIda">Ida</label>
+                <select id="busIda">
+                  <option value="No necesito ida">No necesito ida</option>
+                  <option value="Donostia - Estación de Pio XII - Iglesia Hondarribia">
+                    Donostia - Estación de Pio XII - Iglesia Hondarribia
+                  </option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="busVuelta">Vuelta</label>
+                <select id="busVuelta">
+                  <option value="No necesito vuelta">No necesito vuelta</option>
+                  <option value="Iglesia Hondarribia - Beko Errota - A discoteca Q">
+                    Iglesia Hondarribia - Beko Errota - A discoteca Q
+                  </option>
+                  <option value="Autobús de vuelta a Donostia">
+                    Autobús de vuelta a Donostia
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" style="margin-top:18px;">
+              <label for="busComentario">Comentario (opcional)</label>
+              <textarea id="busComentario" placeholder="Si quieres añadir alguna indicación sobre el transporte..."></textarea>
+            </div>
+
+            <div class="submit-wrap">
+              <button type="submit" class="btn btn-primary">Inscribirme al autobús</button>
+            </div>
+          </form>
+
+          <p class="form-note">
+            Al pulsar el botón, se abrirá tu aplicación de correo con el asunto empezando por <strong>AUTOBUS</strong>.
+          </p>
         </div>
 
         <div class="maps-grid">
@@ -1621,13 +1711,13 @@
           <p class="form-note">
             Al pulsar el botón, se abrirá tu aplicación de correo con el mensaje ya preparado para enviar a <strong>bodaireneykarlos@gmail.com</strong>.
           </p>
+
+          <!-- BOTONES BONITOS DE CALENDARIO DEBAJO DE CONFIRMAR ASISTENCIA -->
+          <div class="action-buttons">
+            <a id="googleCalendarLink" class="secondary-btn" href="#" target="_blank" rel="noopener noreferrer">Guardar en Google Calendar</a>
+            <a id="outlookCalendarLink" class="secondary-btn" href="#" target="_blank" rel="noopener noreferrer">Guardar en Outlook</a>
+          </div>
         </div>
-      </div>
-    </div>
-    
-      <div class="calendar-links">
-        <a id="googleCalendarLink" href="#" target="_blank" rel="noopener noreferrer">Guardar en Google Calendar</a>
-        <a id="outlookCalendarLink" href="#" target="_blank" rel="noopener noreferrer">Guardar en Outlook</a>
       </div>
     </div>
   </section>
@@ -1852,31 +1942,70 @@ Comentarios: ${comentarios || "Ninguno"}
     });
 
     /* =========================
-       GUARDAR EN CALENDARIO
-       - Google Calendar
-       - Outlook web
+       FORMULARIO AUTOBÚS
     ========================= */
-    const churchLabel = "Boda Irene y Karlos";
-    const churchDetails = "Ceremonia religiosa en la Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano. Después, banquete en Beko Errota y fiesta en Q Hondarribia.";
-    const churchLocation = "Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano";
+    const busForm = document.getElementById('busForm');
 
-    // 12 Sep 2026 12:00 -> 14:00 para el bloque principal del calendario
+    busForm.addEventListener('submit', function(event){
+      event.preventDefault();
+
+      const nombre = document.getElementById('busNombre').value.trim();
+      const ida = document.getElementById('busIda').value;
+      const vuelta = document.getElementById('busVuelta').value;
+      const comentario = document.getElementById('busComentario').value.trim();
+
+      if (ida === "No necesito ida" && vuelta === "No necesito vuelta") {
+        alert("Selecciona al menos una opción de autobús para inscribirte.");
+        return;
+      }
+
+      const asunto = `AUTOBUS - ${nombre}`;
+
+      const cuerpo =
+`Hola Irene y Karlos,
+
+Quiero inscribirme al autobús de la boda.
+
+Nombre: ${nombre}
+
+Opción de ida:
+${ida}
+
+Opción de vuelta:
+${vuelta}
+
+Comentario:
+${comentario || "Ninguno"}
+
+Gracias.`;
+
+      const mailto = `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+      window.location.href = mailto;
+    });
+
+    /* =========================
+       GUARDAR EN CALENDARIO
+    ========================= */
+    const eventLabel = "Boda Irene y Karlos";
+    const eventDetails = "Ceremonia religiosa en la Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano. Después, banquete en Beko Errota y fiesta en Q Hondarribia.";
+    const eventLocation = "Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano";
+
     const startISO = "20260912T120000";
-    const endISO   = "20260912T140000";
+    const endISO = "20260912T140000";
 
     const googleCalendarUrl =
       `https://calendar.google.com/calendar/render?action=TEMPLATE` +
-      `&text=${encodeURIComponent(churchLabel)}` +
-      `&details=${encodeURIComponent(churchDetails)}` +
-      `&location=${encodeURIComponent(churchLocation)}` +
+      `&text=${encodeURIComponent(eventLabel)}` +
+      `&details=${encodeURIComponent(eventDetails)}` +
+      `&location=${encodeURIComponent(eventLocation)}` +
       `&dates=${startISO}/${endISO}`;
 
     const outlookCalendarUrl =
       `https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose` +
       `&rru=addevent` +
-      `&subject=${encodeURIComponent(churchLabel)}` +
-      `&body=${encodeURIComponent(churchDetails)}` +
-      `&location=${encodeURIComponent(churchLocation)}` +
+      `&subject=${encodeURIComponent(eventLabel)}` +
+      `&body=${encodeURIComponent(eventDetails)}` +
+      `&location=${encodeURIComponent(eventLocation)}` +
       `&startdt=2026-09-12T12:00:00` +
       `&enddt=2026-09-12T14:00:00`;
 
@@ -1885,3 +2014,4 @@ Comentarios: ${comentarios || "Ninguno"}
   </script>
 </body>
 </html>
+``
