@@ -6,10 +6,10 @@
   <meta name="description" content="Boda de Irene y Karlos - 12 de septiembre de 2026" />
   <title>Irene & Karlos | 12 de septiembre de 2026</title>
 
-  <!-- Tipografías premium -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -287,8 +287,17 @@
       padding:90px 20px;
       background:
         linear-gradient(rgba(37,26,17,.20), rgba(37,26,17,.24)),
-        url("BESO DEBAJO DEL ARCO FLOR.jpg") center 68% / cover no-repeat;
+        url("IMAGEN-PORTADA.jpg") center 68% / cover no-repeat;
       position:relative;
+      overflow:hidden;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at center, rgba(255,255,255,.10), transparent 55%);
+      pointer-events:none;
     }
 
     .hero-card{
@@ -302,6 +311,19 @@
       color:#fff;
       text-align:center;
       box-shadow:0 24px 68px rgba(0,0,0,.18);
+      position:relative;
+      z-index:1;
+      opacity:0;
+      transform:translateY(18px) scale(.98);
+      animation:heroIntro 1.1s ease forwards;
+      animation-delay:.15s;
+    }
+
+    @keyframes heroIntro{
+      to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
     }
 
     .hero-kicker{
@@ -313,12 +335,22 @@
       font-weight:600;
     }
 
+    .hero-script{
+      font-family:'Great Vibes', cursive;
+      font-size:clamp(56px, 8vw, 92px);
+      line-height:1;
+      margin:0 0 8px;
+      font-weight:400;
+      text-shadow:0 10px 28px rgba(0,0,0,.15);
+    }
+
     .hero-title{
       font-family:'Cormorant Garamond', serif;
       margin:0;
-      font-size:clamp(54px, 8vw, 96px);
-      line-height:.9;
+      font-size:clamp(30px, 4vw, 42px);
+      line-height:1.1;
       font-weight:600;
+      letter-spacing:.5px;
     }
 
     .hero-copy{
@@ -372,6 +404,28 @@
     .btn-ghost:hover{
       background:rgba(255,255,255,.18);
       transform:translateY(-2px);
+    }
+
+    .calendar-links{
+      margin-top:14px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    .calendar-links a{
+      color:#fff;
+      opacity:.95;
+      border-bottom:1px solid rgba(255,255,255,.4);
+      padding-bottom:2px;
+    }
+
+    .calendar-links a:hover{
+      opacity:1;
+      border-bottom-color:#fff;
     }
 
     /* =========================
@@ -917,12 +971,6 @@
       margin:0 auto;
     }
 
-    .form-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:18px;
-    }
-
     .field{
       display:flex;
       flex-direction:column;
@@ -945,13 +993,6 @@
       outline:none;
       transition:border-color .2s ease, box-shadow .2s ease;
       font-size:15px;
-    }
-
-    input[readonly]{
-      background:#faf7f4;
-      color:#5f544c;
-      font-weight:700;
-      cursor:not-allowed;
     }
 
     input:focus, textarea:focus,
@@ -1021,8 +1062,7 @@
       .count-grid,
       .story-grid,
       .maps-grid,
-      .tab-grid,
-      .form-grid{
+      .tab-grid{
         grid-template-columns:1fr;
       }
 
@@ -1086,6 +1126,14 @@
       .timeline-dot{
         left:6px;
       }
+
+      .hero-script{
+        font-size:58px;
+      }
+
+      .hero-title{
+        font-size:28px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce){
@@ -1095,8 +1143,12 @@
       .btn,
       .nav-cta,
       .map-btn,
-      .copy-btn{
+      .copy-btn,
+      .hero-card{
         transition:none !important;
+        animation:none !important;
+        opacity:1 !important;
+        transform:none !important;
       }
     }
   </style>
@@ -1125,7 +1177,7 @@
       </div>
 
       <div class="nav-actions">
-        <a href="#rsvp" class="nav-cta">Confirmar asistencia</a>
+        <a class="nav-cta" href="#rsvp">Confirmar asistencia</a>
       </div>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">☰</button>
@@ -1149,22 +1201,25 @@
 
   <!-- PORTADA -->
   <header class="hero" id="inicio">
-    <div class="hero-card reveal">
+    <div class="hero-card">
       <div class="hero-kicker">Guardad la fecha…</div>
-      <h1 class="hero-title">Irene & Karlos</h1>
+      <div class="hero-script">Irene & Karlos</div>
+      <h1 class="hero-title">¡Porque nos damos el sí, quiero!</h1>
 
       <div class="hero-copy">
-        <p><strong>¡Porque nos damos el sí, quiero!</strong><br />
-        Y queremos que tú estés ahí para verlo.</p>
-
+        <p>Y queremos que tú estés ahí para verlo.</p>
         <p><strong>12 de septiembre a las 12:00 h</strong></p>
-
         <p>¡Bienvenidos a nuestra mayor aventura!</p>
       </div>
 
       <div class="hero-actions">
-        <a href="#rsvp" class="btn btn-primary">Confirmar asistencia</a>
-        <a href="#timeline" class="btn btn-ghost">Ver el gran día</a>
+        <a class="btn btn-primary" href="#rsvp">Confirmar asistencia</a>
+        <a class="btn btn-ghost" href="#timeline">Ver el gran día</a>
+      </div>
+
+      <div class="calendar-links">
+        <a id="googleCalendarLink" href="#" target="_blank" rel="noopener noreferrer">Guardar en Google Calendar</a>
+        <a id="outlookCalendarLink" href="#" target="_blank" rel="noopener noreferrer">Guardar en Outlook</a>
       </div>
     </div>
   </header>
@@ -1240,7 +1295,7 @@
 
           <div class="story-photo card">
             <!-- CAMBIA ESTA IMAGEN POR VUESTRA FOTO DE HISTORIA -->
-            <img src="AVENTUREROS.jpg" alt="Foto de Irene y Karlos en su historia" loading="lazy" />
+            <img src="IMAGEN-HISTORIA.jpg" alt="Foto de Irene y Karlos en su historia juntos">
           </div>
         </div>
       </div>
@@ -1337,7 +1392,7 @@
               El banquete empieza a las <strong>13:15 horas</strong> en <strong>Restaurante Beko Errota</strong>.
             </p>
             <p>
-             PRÓXIMAMENTE SE ACTUALIZARÁ CON LOS AUTOBÚSES DISPONIBLES PARA LA IDA Y LA VUELTA.
+              [AQUÍ PODÉIS INDICAR SI HAY TRANSPORTE / BUS]
             </p>
             <div class="map-actions">
               <a class="map-btn primary" href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota/@43.3536697,-1.814181,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109a096ffab47:0x70e48b3d4f8d24a6!8m2!3d43.3536658!4d-1.8116061!16s%2Fg%2F1v1vfj1z?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
@@ -1380,14 +1435,14 @@
 
             <div class="info-box">
               <h3>Desplazamientos</h3>
-              <p>PRÓXIMAMENTE SE ACTUALIZARÁ CON LOS AUTOBÚSES DISPONIBLES PARA IDA Y VUELTA</p>
+              <p>[INDICAR AQUÍ SI HABRÁ AUTOBÚS / TRANSPORTE / PARKING / TAXIS]</p>
             </div>
 
             <div class="info-box">
               <h3>Dress code</h3>
               <p>
                 Vestid elegante y festivo.
-                <br /><br />
+                <br><br>
                 <strong class="highlight-danger" style="font-size:18px;">Prohibido verde.</strong>
               </p>
             </div>
@@ -1395,10 +1450,10 @@
             <div class="info-box">
               <h3>Nota importante</h3>
               <p>
-                <strong class="highlight-danger">No se admiten acompañantes a la boda.</strong>
-                <br /><br />
-                La invitación es individual y solo permite <strong>1 asistente</strong>.
-                <br /><br />
+                <strong>Las invitaciones son únicas e intransferibles.</strong>
+                <br><br>
+                Cada invitación corresponde a <strong>una persona</strong>.
+                <br><br>
                 Eso sí, <strong>todos estáis invitados a la fiesta en Q Hondarribia</strong>.
               </p>
             </div>
@@ -1450,9 +1505,6 @@
               <a class="map-btn primary" href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota/@43.3536697,-1.814181,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109a096ffab47:0x70e48b3d4f8d24a6!8m2!3d43.3536658!4d-1.8116061!16s%2Fg%2F1v1vfj1z?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
                 Ver ubicación
               </a>
-                 <a class="map-btn primary" href="https://www.google.com/maps/place/%F0%9F%8D%94+Restaurante+Beko+Errota/@43.3536697,-1.814181,17z/data=!3m1!4b1!4m6!3m5!1s0xd5109a096ffab47:0x70e48b3d4f8d24a6!8m2!3d43.3536658!4d-1.8116061!16s%2Fg%2F1v1vfj1z?entry=ttu&g_ep=EgoyMDI2MDYwMy4xIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
-                Abrir Google Maps
-              </a>
             </div>
           </div>
 
@@ -1486,28 +1538,28 @@
         </p>
 
         <div class="gallery-grid">
-          <button class="gallery-item gallery-1" type="button" data-full="ABRAZO EN CONCIERTO.jpg" aria-label="Abrir foto 1">
-            <img src="ABRAZO EN CONCIERTO.jpg" alt="Foto de galería 1" loading="lazy" />
+          <button class="gallery-item gallery-1" type="button" data-full="GALERIA-1.jpg" aria-label="Abrir foto 1">
+            <img src="GALERIA-1.jpg" alt="Foto de galería 1" loading="lazy">
           </button>
 
-          <button class="gallery-item gallery-2" type="button" data-full="ABRAZO EN EL PUERTO.jpg" aria-label="Abrir foto 2">
-            <img src="ABRAZO EN EL PUERTO.jpg" alt="Foto de galería 2" loading="lazy" />
+          <button class="gallery-item gallery-2" type="button" data-full="GALERIA-2.jpg" aria-label="Abrir foto 2">
+            <img src="GALERIA-2.jpg" alt="Foto de galería 2" loading="lazy">
           </button>
 
-          <button class="gallery-item gallery-3" type="button" data-full="AMOR AL ATARDECER.jpg" aria-label="Abrir foto 3">
-            <img src="AMOR AL ATARDECER.jpg" alt="Foto de galería 3" loading="lazy" />
+          <button class="gallery-item gallery-3" type="button" data-full="GALERIA-3.jpg" aria-label="Abrir foto 3">
+            <img src="GALERIA-3.jpg" alt="Foto de galería 3" loading="lazy">
           </button>
 
-          <button class="gallery-item gallery-4" type="button" data-full="ELEGANTES EVENTO.jpg" aria-label="Abrir foto 4">
-            <img src="ELEGANTES EVENTO.jpg" alt="Foto de galería 4" loading="lazy" />
+          <button class="gallery-item gallery-4" type="button" data-full="GALERIA-4.jpg" aria-label="Abrir foto 4">
+            <img src="GALERIA-4.jpg" alt="Foto de galería 4" loading="lazy">
           </button>
 
-          <button class="gallery-item gallery-5" type="button" data-full="SELFIE EN LA PLAYA.jpg" aria-label="Abrir foto 5">
-            <img src="SELFIE EN LA PLAYA.jpg" alt="Foto de galería 5" loading="lazy" />
+          <button class="gallery-item gallery-5" type="button" data-full="GALERIA-5.jpg" aria-label="Abrir foto 5">
+            <img src="GALERIA-5.jpg" alt="Foto de galería 5" loading="lazy">
           </button>
 
-          <button class="gallery-item gallery-6" type="button" data-full="SONRISAS EN VELADA ROMANTICA.jpg" aria-label="Abrir foto 6">
-            <img src="SONRISAS EN VELADA ROMANTICA.jpg" alt="Foto de galería 6" loading="lazy" />
+          <button class="gallery-item gallery-6" type="button" data-full="GALERIA-6.jpg" aria-label="Abrir foto 6">
+            <img src="GALERIA-6.jpg" alt="Foto de galería 6" loading="lazy">
           </button>
         </div>
       </div>
@@ -1542,49 +1594,37 @@
 
         <p class="rsvp-note">
           Nos hace muchísima ilusión tu asistencia.
-          <br /><br />
-          <strong class="highlight-danger" style="font-size:18px;">
-            No se admiten acompañantes a la boda.
-          </strong>
-          <br /><br />
-          La invitación es individual y solo permite <strong>1 asistente</strong>.
-          <br />
+          <br><br>
+          <strong>Las invitaciones son únicas e intransferibles.</strong>
+          <br><br>
           Todos estáis invitados al baile y a la fiesta en <strong>Q Hondarribia</strong>.
         </p>
 
         <div class="email-card card">
           <form id="emailForm">
-            <div class="form-grid">
-              <div class="field">
-                <label for="nombre">Nombre y apellidos</label>
-                <input id="nombre" type="text" placeholder="Escribe tu nombre" required />
-              </div>
-
-              <div class="field">
-                <label for="asistentes">Asistentes</label>
-                <input id="asistentes" type="text" value="1 asistente" readonly />
-                <input id="asistentesValor" type="hidden" value="1" />
-              </div>
+            <div class="field">
+              <label for="nombre">Nombre y apellidos</label>
+              <input id="nombre" type="text" placeholder="Escribe tu nombre" required />
             </div>
 
             <div class="warning-box">
-              <strong>Importante:</strong> Esta invitación es únicamente para <strong>1 persona</strong>.
-              <br />
-              No se admiten acompañantes a la boda, pero todos estáis invitados a la fiesta en <strong>Q Hondarribia</strong>.
+              <strong>Importante:</strong> Las invitaciones son <strong>únicas e intransferibles</strong>.
+              <br>
+              Si lo deseas, puedes indicarnos en el comentario cualquier alergia o detalle importante.
             </div>
 
             <div class="field" style="margin-top:18px;">
-              <label for="comentarios">Comentarios</label>
+              <label for="comentarios">Comentario</label>
               <textarea id="comentarios" placeholder="Alergias, observaciones o un mensaje bonito para los novios..."></textarea>
             </div>
 
             <div class="submit-wrap">
-              <button type="submit" class="btn btn-primary">Enviar por correo</button>
+              <button type="submit" class="btn btn-primary">Confirmar asistencia</button>
             </div>
           </form>
 
           <p class="form-note">
-            Este formulario no almacena datos online: al pulsar el botón, se abrirá tu aplicación de correo con el mensaje ya preparado.
+            Al pulsar el botón, se abrirá tu aplicación de correo con el mensaje ya preparado para enviar a <strong>bodaireneykarlos@gmail.com</strong>.
           </p>
         </div>
       </div>
@@ -1600,7 +1640,7 @@
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-content">
       <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen">×</button>
-      <img id="lightboxImage" src="" alt="Imagen ampliada de la galería" />
+      <img id="lightboxImage" src="" alt="Imagen ampliada de la galería">
     </div>
   </div>
 
@@ -1787,7 +1827,6 @@
       event.preventDefault();
 
       const nombre = document.getElementById('nombre').value.trim();
-      const asistentes = document.getElementById('asistentesValor').value.trim();
       const comentarios = document.getElementById('comentarios').value.trim();
 
       const asunto = "Confirmación de asistencia - Boda Irene y Karlos";
@@ -1798,11 +1837,9 @@
 Quiero confirmar mi asistencia a vuestra boda.
 
 Nombre: ${nombre}
-Número de asistentes: ${asistentes}
 
 Importante:
-No se admiten acompañantes a la boda.
-La invitación es individual.
+Las invitaciones son únicas e intransferibles.
 Todos están invitados a la fiesta en Q Hondarribia.
 
 Comentarios: ${comentarios || "Ninguno"}
@@ -1812,6 +1849,38 @@ Comentarios: ${comentarios || "Ninguno"}
       const mailto = `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
       window.location.href = mailto;
     });
+
+    /* =========================
+       GUARDAR EN CALENDARIO
+       - Google Calendar
+       - Outlook web
+    ========================= */
+    const churchLabel = "Boda Irene y Karlos";
+    const churchDetails = "Ceremonia religiosa en la Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano. Después, banquete en Beko Errota y fiesta en Q Hondarribia.";
+    const churchLocation = "Iglesia Parroquial de Nuestra Señora de la Asunción y del Manzano";
+
+    // 12 Sep 2026 12:00 -> 14:00 para el bloque principal del calendario
+    const startISO = "20260912T120000";
+    const endISO   = "20260912T140000";
+
+    const googleCalendarUrl =
+      `https://calendar.google.com/calendar/render?action=TEMPLATE` +
+      `&text=${encodeURIComponent(churchLabel)}` +
+      `&details=${encodeURIComponent(churchDetails)}` +
+      `&location=${encodeURIComponent(churchLocation)}` +
+      `&dates=${startISO}/${endISO}`;
+
+    const outlookCalendarUrl =
+      `https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose` +
+      `&rru=addevent` +
+      `&subject=${encodeURIComponent(churchLabel)}` +
+      `&body=${encodeURIComponent(churchDetails)}` +
+      `&location=${encodeURIComponent(churchLocation)}` +
+      `&startdt=2026-09-12T12:00:00` +
+      `&enddt=2026-09-12T14:00:00`;
+
+    document.getElementById('googleCalendarLink').href = googleCalendarUrl;
+    document.getElementById('outlookCalendarLink').href = outlookCalendarUrl;
   </script>
 </body>
 </html>
